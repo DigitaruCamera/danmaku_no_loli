@@ -45,8 +45,4 @@ public class ButtonsFonctions : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;
 		}
 
-	public void ShowAds()
-		{
-			Advertisement.Show();
-		}
 }

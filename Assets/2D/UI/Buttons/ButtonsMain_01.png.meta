@@ -1,12 +1,18 @@
 fileFormatVersion: 2
-guid: 3910e4ce5b5a91d40b0cdd600ff88a79
-timeCreated: 1514552088
+guid: b3b9df42c71d31348aca819e25629888
+timeCreated: 1514560016
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: LoadingScreen_0
-    21300002: LoadingScreen_1
-    21300004: LoadingScreen_2
+    21300000: ButtonsMain_01_0
+    21300002: ButtonsMain_01_1
+    21300004: ButtonsMain_01_2
+    21300006: ButtonsMain_01_3
+    21300008: ButtonsMain_01_4
+    21300010: ButtonsMain_01_5
+    21300012: ButtonsMain_01_6
+    21300014: ButtonsMain_01_7
+    21300016: ButtonsMain_01_8
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -43,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -99,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LoadingScreen_0
+      name: ButtonsMain_01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 522
-        width: 988
-        height: 261
+        y: 98
+        width: 329.33334
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,13 +119,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LoadingScreen_1
+      name: ButtonsMain_01_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 261
-        width: 988
-        height: 261
+        x: 329
+        y: 98
+        width: 329.33334
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,13 +133,97 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LoadingScreen_2
+      name: ButtonsMain_01_2
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 98
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_4
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_5
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 988
-        height: 261
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_01_8
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 0
+        width: 329.33334
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

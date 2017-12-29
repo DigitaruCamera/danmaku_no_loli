@@ -642,15 +642,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665445988957490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64fbe200b551b174cb78235eb7e45847, type: 3}
+  m_Script: {fileID: 11500000, guid: f535675d71257b349a0e4852a6a98d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  focus: 3
-  bullet: {fileID: 1826959961347610, guid: 9349785f5e81ed64e849aee092c9acf2, type: 2}
-  bomb: {fileID: 1260875923031382, guid: 71bcc95d47eb9be43b21b17e9e8805db, type: 2}
-  tire: 1
-  delay: 25
 --- !u!114 &114334750366449502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -943,7 +937,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114393348493351312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114738431158800092
@@ -984,7 +989,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114568721344135710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadSameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114751371646013268
@@ -1148,7 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.95294124, g: 0.95294124, b: 0.95294124, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1156,19 +1172,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: b8d89590f6604a245b7e770a2311e037, type: 3}
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 8888
 --- !u!114 &114907475888971356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,7 +1263,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1463,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -196.59, y: -864.85}
+  m_AnchoredPosition: {x: -196.59, y: -559}
   m_SizeDelta: {x: 379.3, y: 81.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224415390829982692
@@ -1521,7 +1537,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: -910.80273}
-  m_SizeDelta: {x: 1080, y: 200}
+  m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.49999997, y: 0}
 --- !u!224 &224449471618454404
 RectTransform:
@@ -1743,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -780.80273}
+  m_AnchoredPosition: {x: 0, y: -632}
   m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224863190259630648
