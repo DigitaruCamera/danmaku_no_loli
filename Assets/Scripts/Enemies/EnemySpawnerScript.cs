@@ -14,4 +14,8 @@ public class EnemySpawnerScript : MonoBehaviour {
 			yield return new WaitForSeconds (frequence);
 		}
 	}
+
+	void Update () {
+		transform.Rotate (Vector3.back * -100 * Time.deltaTime);
+	}
 }

@@ -36,8 +36,7 @@ public class PlayerBullet : MonoBehaviour
 
 	IEnumerator OnTriggerEnter2D(Collider2D coll) {
 		if (coll.gameObject.tag == "Enemy") {
-			GetComponent<Animation>().Play ("1to0scale");
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0.01f);
 			Destroy(gameObject);
 		}
 	}

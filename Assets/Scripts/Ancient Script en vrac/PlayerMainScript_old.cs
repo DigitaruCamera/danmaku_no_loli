@@ -9,13 +9,14 @@ public class PlayerMainScript_old : MonoBehaviour
 		public float focus = 3;
 		public GameObject bullet;
 		public GameObject bomb;
+		public GameObject FailMenu;
 		public bool tire = true;
 		double current_time;
 		double delayed_time;
 		public double delay = 25;
 		double BombPercent = 1;
 		float angle = 0.05f;
-
+		bool Dead = false ;
 
 		IEnumerator Start ()
 		{
@@ -68,7 +69,6 @@ public class PlayerMainScript_old : MonoBehaviour
 				delayed_time = current_time + delay;
 				BombPercent = 0;
 			}
-			//==============================
 		}
 
 		void Update ()
@@ -76,16 +76,31 @@ public class PlayerMainScript_old : MonoBehaviour
 			current_time += Time.deltaTime;
 			mouvement ();
 			action ();
+		if (Dead == true) {
+			Destroy(gameObject);
+			FailMenu.SetActive(true);
+			print ("dead");
+					}
 		}
 
 
 		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Enemy") {
-				Destroy (gameObject);
+			Dead = true;
+			//Destroy (gameObject);
 			}
 			if (coll.gameObject.tag == "EnemyBullet") {
-				Destroy (gameObject);
+			Dead = true;
+			//Destroy (gameObject);
 			}
 		}
+		
+	void OnParticleCollision (GameObject coll) {
+		print ("ParticleEnemyBullethit");
+		if (coll.gameObject.tag == "EnemyBullet") {
+			Dead = true;
+			//Destroy(gameObject);
+		}
+	}
 
 }

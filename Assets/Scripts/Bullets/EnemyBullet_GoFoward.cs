@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet_GoFoward : MonoBehaviour {
 
-/*	public int Bspeed = 15;
+	public int Bspeed = 15;
 	public float lifeTime = 1;
 
 	void Start ()
@@ -15,11 +15,11 @@ public class EnemyBullet_GoFoward : MonoBehaviour {
 
 	void update ()
 	{
-		transform.position += Vector2.down * Time.deltaTime;
+		transform.position += Vector3.up * Time.deltaTime;
 
 	}
 
-	IEnumerator OnTriggerEnter2D(Collider2D coll) {
+/*	IEnumerator OnTriggerEnter2D(Collider2D coll) {
 		if (coll.gameObject.tag == "PlayerBomb") {
 			Destroy (gameObject);
 

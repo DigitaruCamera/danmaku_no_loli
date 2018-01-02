@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4717976423922976}
   - component: {fileID: 33922671747962240}
   - component: {fileID: 23602559789354196}
-  - component: {fileID: 61219079499645508}
   m_Layer: 0
   m_Name: EnemyMesh
   m_TagString: Enemy
@@ -39,6 +38,7 @@ GameObject:
   - component: {fileID: 4615614803631224}
   - component: {fileID: 114611875701406296}
   - component: {fileID: 50524238715377972}
+  - component: {fileID: 61088096960953674}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848412544130686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: -2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4717976423922976}
@@ -134,12 +134,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61219079499645508
+--- !u!61 &61088096960953674
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1694633954957334}
+  m_GameObject: {fileID: 1848412544130686}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -173,3 +173,4 @@ MonoBehaviour:
   frequence: 1
   EnemyBullet: {fileID: 1333549526984556, guid: d835ca832ad443a4ea537a1a87c6313e,
     type: 2}
+  live: 300
