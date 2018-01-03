@@ -6,8 +6,7 @@ using UnityEngine.Advertisements;
 
 public class ButtonsFonctions : MonoBehaviour 
 {
-	public GameObject Player;
-
+		public GameObject Player;
 		public GameObject loadingImage;
 
 		public void LoadScene(int level)
