@@ -2,7 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMouvTactil : MonoBehaviour {
+public class PlayerMouvTactil : MonoBehaviour
+{
+    Vector3 BlockOnCamera(Vector3 pos)
+    {
+        float dist = (pos - Camera.main.transform.position).z;
+
+        float leftBorder = Camera.main.ViewportToWorldPoint(
+            new Vector3(0, 0, dist)).x;
+
+        float rightBorder = Camera.main.ViewportToWorldPoint(
+            new Vector3(1, 0, dist)).x;
+
+        float topBorder = Camera.main.ViewportToWorldPoint(
+            new Vector3(0, 0, dist)).y;
+
+        float bottomBorder = Camera.main.ViewportToWorldPoint(
+            new Vector3(0, 1, dist)).y;
+
+        pos = new Vector3(
+            Mathf.Clamp(pos.x, leftBorder, rightBorder),
+            Mathf.Clamp(pos.y, topBorder, bottomBorder),
+            pos.z);
+        return (pos);
+    }
+
     void Update()
     {
         Camera c = Camera.main;
@@ -10,35 +34,12 @@ public class PlayerMouvTactil : MonoBehaviour {
         Event e = Event.current;
         float dist = (transform.position - Camera.main.transform.position).z;
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
+        {
             Vector2 mousePos = Input.GetTouch(0).position;
-            mousePos.x = e.mousePosition.x;
-            mousePos.y = c.pixelHeight - e.mousePosition.y;
-
             p = c.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
+            Vector3 final_pos = transform.position - p;
+            final_pos = BlockOnCamera(final_pos);
             GetComponent<Rigidbody2D>().MovePosition(p);
         }
-    }
-    void OnGUI()
-    {
-        Vector3 p = new Vector3();
-        Camera c = Camera.main;
-        Event e = Event.current;
-        Vector2 mousePos = new Vector2();
-        float dist = (transform.position - Camera.main.transform.position).z;
-
-        // Get the mouse position from Event.
-        // Note that the y position from Event is inverted.
-        mousePos.x = e.mousePosition.x;
-        mousePos.y = c.pixelHeight - e.mousePosition.y;
-
-        p = c.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
-        GetComponent<Rigidbody2D>().MovePosition(p);
-
-        GUILayout.BeginArea(new Rect(20, 20, 250, 120));
-        GUILayout.Label("Screen pixels: " + c.pixelWidth + ":" + c.pixelHeight);
-        GUILayout.Label("Mouse position: " + mousePos);
-        GUILayout.Label("World position: " + p.ToString("F3"));
-        GUILayout.EndArea();
     }
 }
