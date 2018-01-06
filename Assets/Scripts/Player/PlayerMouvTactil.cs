@@ -35,11 +35,13 @@ public class PlayerMouvTactil : MonoBehaviour
         float dist = (transform.position - Camera.main.transform.position).z;
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            Vector2 mousePos = Input.GetTouch(0).position;
+            Vector2 mousePos = Input.GetTouch(0).deltaPosition;
             p = c.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
-            Vector3 final_pos = transform.position - p;
-            final_pos = BlockOnCamera(final_pos);
-            GetComponent<Rigidbody2D>().MovePosition(final_pos);
+            GetComponent<Rigidbody2D>().MovePosition(transform.position + p);
+        }
+        if (Input.touchCount > 1)
+        {
+            Debug.Log("bomb");
         }
     }
 }
