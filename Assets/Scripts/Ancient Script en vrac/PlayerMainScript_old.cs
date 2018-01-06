@@ -15,9 +15,7 @@ public class PlayerMainScript_old : MonoBehaviour
 		double delayed_time;
 		public double delay = 25;
 		double BombPercent = 1;
-		float angle = 0.05f;
 		bool Dead = false ;
-
 		IEnumerator Start ()
 		{
 			while (true) {
@@ -54,11 +52,9 @@ public class PlayerMainScript_old : MonoBehaviour
 			//=============FOCUS============
 			if (Input.GetButtonDown("Fire1")) {
 				speed = speed / focus;
-				angle = -0.05f;
 			}
 			if (Input.GetButtonUp("Fire1")) {
 				speed = speed * focus;
-				angle = 0.05f;
 			}
 			//============BOMB==============
 			GameObject.Find ("Image_bombprogress_fill").GetComponent <Image>().fillAmount = (float)BombPercent;
