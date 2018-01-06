@@ -39,7 +39,7 @@ public class PlayerMouvTactil : MonoBehaviour
             p = c.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
             Vector3 final_pos = transform.position - p;
             final_pos = BlockOnCamera(final_pos);
-            GetComponent<Rigidbody2D>().MovePosition(p);
+            GetComponent<Rigidbody2D>().MovePosition(final_pos);
         }
     }
 }
