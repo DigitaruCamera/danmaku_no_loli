@@ -39,21 +39,25 @@ public class PlayerMouvTactil : MonoBehaviour
         return (pos);
     }
 
-    Vector2 mousePos = new Vector2(-1, -1);
+    Vector3 diffPos;
+    bool b = true;
     void FixedUpdate()
     {
-        if (mousePos.x == -1 && mousePos.y == -1)
-        {
-            mousePos = new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
-        }
         Vector3 p = new Vector3();
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount > 0)
         {
-            mousePos = Input.GetTouch(0).position;
-            //mousePos = Input.GetTouch(0).position;
+            Vector2 mousePos = Input.GetTouch(0).position;
             p = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 15));
-            transform.position = p;
-
+            if (b == true)
+            {
+                diffPos = transform.position - p;
+                b = false;
+            }
+            transform.position = p + diffPos;
+        }
+        else
+        {
+            b = true;
         }
     }
     void OnGUI()
