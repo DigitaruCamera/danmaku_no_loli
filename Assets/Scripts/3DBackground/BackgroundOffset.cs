@@ -5,16 +5,6 @@ using UnityEngine;
 public class BackgroundOffset : MonoBehaviour
 {
 	public float scrollspeed = 2f;
-
-	void start (){		
-
-	}
-
-
-	void awake (){		
-
-	}
-
 	void Update (){
 
 		Destroy (gameObject, 60);
