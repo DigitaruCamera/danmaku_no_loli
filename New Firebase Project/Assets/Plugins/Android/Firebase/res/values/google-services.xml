@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://danmakunololi.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">876083363494</string>
+  <string name="google_storage_bucket" translatable="false">danmakunololi.appspot.com</string>
+  <string name="project_id" translatable="false">danmakunololi</string>
+  <string name="google_api_key" translatable="false">AIzaSyAGrMm273GiKMSAFMIQTCDInIpgyU1wvUg</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAGrMm273GiKMSAFMIQTCDInIpgyU1wvUg</string>
+  <string name="google_app_id" translatable="false">1:876083363494:android:d57c2e4ba6091ae3</string>
+  <string name="default_web_client_id" translatable="false">876083363494-gj340344fknakjriiu685etf9cup72c9.apps.googleusercontent.com</string>
+</resources>
