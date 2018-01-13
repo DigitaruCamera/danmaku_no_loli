@@ -23,7 +23,7 @@ public class DialogManager : MonoBehaviour {
 			print ("Out Of Dialogue");
 			Time.timeScale = 1;
 			GameObject.Find ("Player_physic").GetComponent<PlayerMouvTactil> ().enabled = true;
-			GameObject.Find ("UI_Manager").GetComponent<DialogManager> ().enabled = false;
+			GetComponent<DialogManager> ().enabled = false;
 		} 
 	}
 }

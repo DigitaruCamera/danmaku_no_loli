@@ -8,12 +8,7 @@ public class SceneManagerMainScript : MonoBehaviour {
 	void Start () {
 		Time.timeScale = 1;
 	}
-
-    public void LoadScene(string SceneName)
-    {
-        SceneManager.LoadScene(SceneName);
-    }
-
+		
     public void LoadSceneCredit(string SceneName)
     {
         int _Credit = 1;
