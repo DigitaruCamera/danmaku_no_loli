@@ -291,6 +291,11 @@ Prefab:
       propertyPath: TrailModule.worldSpace
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
+        type: 2}
+      propertyPath: TriggerModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69f58fd0a599c1846904d545ee27759d, type: 2}
   m_IsPrefabParent: 0
@@ -433,7 +438,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4082570978868278, guid: 7d0da9bf625bdd942b095c3616ae3e30, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4082570978868278, guid: 7d0da9bf625bdd942b095c3616ae3e30, type: 2}
       propertyPath: m_LocalPosition.y

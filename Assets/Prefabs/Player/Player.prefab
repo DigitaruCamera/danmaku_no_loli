@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 114665077576886948}
   - component: {fileID: 58355814178578018}
   - component: {fileID: 50473345630437298}
+  - component: {fileID: 114376820717545038}
   m_Layer: 0
   m_Name: Player_physic
   m_TagString: Player
@@ -546,7 +547,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469774466482342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 1, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4775016384415154}
@@ -632,7 +633,7 @@ Transform:
   m_GameObject: {fileID: 1300085004284768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4361665360770164}
   m_RootOrder: 0
@@ -753,7 +754,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.08
 --- !u!95 &95915987448724056
 Animator:
   serializedVersion: 3
@@ -990,8 +991,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114394311127726062}
-        m_MethodName: LoadSameScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1134,6 +1135,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f535675d71257b349a0e4852a6a98d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114376820717545038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665445988957490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e891d8daf2a322f4ab69fbdb68b0375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1826959961347610, guid: 9349785f5e81ed64e849aee092c9acf2, type: 2}
+  bomb: {fileID: 1260875923031382, guid: 71bcc95d47eb9be43b21b17e9e8805db, type: 2}
+  FailMenu: {fileID: 1237344683087752}
+  tire: 1
 --- !u!114 &114394311127726062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1825,14 +1841,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

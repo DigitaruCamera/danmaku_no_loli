@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
-  background1: {fileID: 1526617282142012}
-  background2: {fileID: 1472566632202444, guid: 690009b45b434fb488b88024d834de79,
+  background1: {fileID: 1472566632202444, guid: 690009b45b434fb488b88024d834de79,
     type: 2}
-  background3: {fileID: 1301117736440706, guid: f711a1ad01127c247a8aece5736d0916,
+  background2: {fileID: 1301117736440706, guid: f711a1ad01127c247a8aece5736d0916,
     type: 2}
-  background4: {fileID: 1652043485518374, guid: c4a3599b7cbe45e41bff1067d75c47db,
+  background3: {fileID: 1652043485518374, guid: c4a3599b7cbe45e41bff1067d75c47db,
     type: 2}
+  background4: {fileID: 0}
