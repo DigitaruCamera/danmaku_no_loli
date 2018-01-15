@@ -1,35 +1,27 @@
 fileFormatVersion: 2
-guid: 2135d0d5aa927bc45beb577d2b53eb46
-timeCreated: 1514984103
+guid: 21ed6a692ff8d944aa71c91b31c91d76
+timeCreated: 1516055556
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Body
-    100004: Hair
     400000: //RootNode
-    400002: Body
-    400004: Hair
+    2100000: Stage1_mat
     2300000: //RootNode
-    2300002: Body
-    2300004: Hair
     3300000: //RootNode
-    3300002: Body
-    3300004: Hair
-    4300000: Body
-    4300002: Hair
+    4300000: 1_ground
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Player_mat
-    second: {fileID: 2100000, guid: 5ebcb12b4d6bfa34ebedf7bd5da6b139, type: 2}
+      name: Stage1_mat
+    second: {fileID: 2100000, guid: f7b02882af9605847ad9bbca732bed41, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

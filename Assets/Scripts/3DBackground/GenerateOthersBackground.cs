@@ -22,16 +22,16 @@ public class GenerateOthersBackground : MonoBehaviour
 			int salut = Random.Range (1, range);
 
 			if (salut == 1)
-				Instantiate (background1, new Vector3(0, 25, 3), transform.rotation);
+				Instantiate (background1, new Vector3(0, 20, 24), transform.rotation);
 
 			if (salut == 2)
-				Instantiate (background2, new Vector3(0, 25, 3), transform.rotation);
+				Instantiate (background2, new Vector3(0, 20, 24), transform.rotation);
 
 			if (salut == 3)
-				Instantiate (background3, new Vector3(0, 25, 3), transform.rotation);
+				Instantiate (background3, new Vector3(0, 20, 24), transform.rotation);
 
 			if (salut == 4)
-				Instantiate (background4, new Vector3(0, 25, 3), transform.rotation);
+				Instantiate (background4, new Vector3(0, 20, 24), transform.rotation);
 		}
 
 	}
