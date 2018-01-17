@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 58355814178578018}
   - component: {fileID: 50473345630437298}
   - component: {fileID: 114376820717545038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_physic
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1985427165786066
 GameObject:
   m_ObjectHideFlags: 1

@@ -46,6 +46,7 @@ public class PlaceOlderScript : MonoBehaviour
 
 
 	void OnTriggerEnter2D(Collider2D coll) {
+		print ("Trigger2DHit");
 		if (coll.gameObject.tag == "Enemy") {
 			Dead = true;
 			//Destroy (gameObject);
@@ -63,5 +64,4 @@ public class PlaceOlderScript : MonoBehaviour
 			//Destroy(gameObject);
 		}
 	}
-
 }
