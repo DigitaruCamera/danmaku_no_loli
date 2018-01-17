@@ -11,9 +11,9 @@ public class GenerateOthersBackground : MonoBehaviour
 	public GameObject background3;
 	public GameObject background4;
 
-	void start (){
+/*	void Start (){
 		Instantiate (background1, transform.position, transform.rotation);
-	}
+	}*/
 
 	void OnTriggerExit2D(Collider2D coll){
 
