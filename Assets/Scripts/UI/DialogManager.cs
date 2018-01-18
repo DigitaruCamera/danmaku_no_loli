@@ -15,12 +15,10 @@ public class DialogManager : MonoBehaviour {
 	void Update () {
 
 		if (DialogueBox.activeSelf == true) {
-			print ("In To Dialogue");
 			Time.timeScale = 0;
 			GameObject.Find ("Player_physic").GetComponent<PlayerMouvTactil> ().enabled = false;
 		} 
 		if (DialogueBox.activeSelf == false) {
-			print ("Out Of Dialogue");
 			Time.timeScale = 1;
 			GameObject.Find ("Player_physic").GetComponent<PlayerMouvTactil> ().enabled = true;
 			GetComponent<DialogManager> ().enabled = false;

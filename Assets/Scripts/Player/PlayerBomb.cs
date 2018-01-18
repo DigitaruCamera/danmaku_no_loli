@@ -9,8 +9,13 @@ public class PlayerBomb : MonoBehaviour
 
 	void Start ()
 	{
-		GetComponent<Rigidbody2D>().velocity = transform.up.normalized * Bspeed;
+//		GetComponent<Rigidbody2D>().velocity = transform.up.normalized * Bspeed;
 //		GameObject.Find ("SceneManager").GetComponent<ui_score>().used += 1;
-		Destroy (gameObject, lifeTime);
+//		Destroy (gameObject, lifeTime);
 	}
+
+    private void Update()
+    {
+        print(GetComponent<Rigidbody2D>().velocity);
+    }
 }

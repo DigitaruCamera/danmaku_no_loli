@@ -28,7 +28,7 @@ public class PlayerMouvTactil : MonoBehaviour
         {
             Vector2 mousePos = Input.GetTouch(0).position;
             touchPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 15));
-            if (isTouch == true)
+            if (isTouch == true || BlockOnCamera(touchPos + diffPos) != touchPos + diffPos)
             {
                 diffPos = transform.position - touchPos;
                 isTouch = false;
