@@ -277,6 +277,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4082570978868278}
+  - component: {fileID: 114843599135211422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -347,7 +348,7 @@ GameObject:
   - component: {fileID: 114334325657728044}
   - component: {fileID: 58355814178578018}
   - component: {fileID: 50473345630437298}
-  - component: {fileID: 114376820717545038}
+  - component: {fileID: 114803102448675656}
   m_Layer: 8
   m_Name: Player_physic
   m_TagString: Player
@@ -1117,21 +1118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f535675d71257b349a0e4852a6a98d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114376820717545038
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1665445988957490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e891d8daf2a322f4ab69fbdb68b0375c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1826959961347610, guid: 9349785f5e81ed64e849aee092c9acf2, type: 2}
-  bomb: {fileID: 1260875923031382, guid: 71bcc95d47eb9be43b21b17e9e8805db, type: 2}
-  FailMenu: {fileID: 1237344683087752}
-  tire: 1
 --- !u!114 &114389414485963886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1634,6 +1620,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114803102448675656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665445988957490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21065d6dc4f239b4fb90f2284b042d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1826959961347610, guid: 9349785f5e81ed64e849aee092c9acf2,
+    type: 2}
+  bombPrebab: {fileID: 1260875923031382, guid: 71bcc95d47eb9be43b21b17e9e8805db, type: 2}
 --- !u!114 &114830862305055892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1734,6 +1734,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114843599135211422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469774466482342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda48a42c6ba22c4db7b5fe39ad6fcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay_bomb: 5
+  delay_bullet: 0.1
+  nb_bullet: 3
+  angle_bullet: 15
+  UI_point: {fileID: 0}
+  UI_death: {fileID: 0}
+  UI_pause: {fileID: 0}
 --- !u!114 &114887891920242208
 MonoBehaviour:
   m_ObjectHideFlags: 1

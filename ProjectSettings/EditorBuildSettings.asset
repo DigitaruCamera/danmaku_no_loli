@@ -17,6 +17,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameplayTest.unity
     guid: 0e7efef5c494f59428c23645818af0bc
-  - enabled: 1
-    path: Assets/Scenes/playerCreator.unity
-    guid: 21edb46b0cc530a43ae648b7031ab644

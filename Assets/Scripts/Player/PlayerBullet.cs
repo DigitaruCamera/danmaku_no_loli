@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
 	public int Bspeed = 20;
-	public int lifeTime = 2;
 	public double dispow = 0.2;
 	public double power = 3;
 	private double delay = 0.1;
@@ -26,7 +25,10 @@ public class PlayerBullet : MonoBehaviour
 	{
 		power = 3.0;
 		GetComponent<Rigidbody2D>().velocity = transform.up.normalized * Bspeed;
-		Destroy (gameObject, lifeTime);
+	}
+
+	void OnBecameInvisible() {
+		Destroy(gameObject);
 	}
 
 	void Update ()
