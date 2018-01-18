@@ -38,20 +38,7 @@ public class ModuleSpawner : MonoBehaviour {
 		if (NbModule < 4) {
 
 			print ("NeedModule");
-			
-			int salut = Random.Range (1, range);
 
-			if (salut == 1)
-				Instantiate (Module1, transform.position, transform.rotation);
-
-			if (salut == 2)
-				Instantiate (Module2, transform.position, transform.rotation);
-
-			if (salut == 3)
-				Instantiate (Module3, transform.position, transform.rotation);
-
-			if (salut == 4)
-				Instantiate (Module4, transform.position, transform.rotation);
 		}
 	}
 }
