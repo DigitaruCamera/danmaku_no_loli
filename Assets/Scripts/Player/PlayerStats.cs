@@ -21,12 +21,20 @@ public class PlayerStats : MonoBehaviour
         if (Input.touchCount >= 2 && delayed_bomb < Time.time)
         {
             delayed_bomb = Time.time + delay_bomb;
-            GetComponentInChildren<actionPhysics>().useBomb();
+            GetComponent<actionPhysics>().useBomb();
         }
         if (delayed_bullet < Time.time)
         {
             delayed_bullet = Time.time + delay_bullet;
-            GetComponentInChildren<actionPhysics>().shotBullet(nb_bullet, angle_bullet);
+            GetComponent<actionPhysics>().shotBullet(nb_bullet, angle_bullet);
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.tag == "bulletEnemy" && UI_death != null)
+        {
+            UI_death.SetActive(true);
         }
     }
 }
