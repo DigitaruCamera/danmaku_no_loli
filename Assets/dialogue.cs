@@ -11,35 +11,37 @@ public class dialogue : MonoBehaviour {
     int iLetter = 0;
     int iText = 0;
     string[] currentText;
-
-    private void Start()
-    {
-        GetComponent<Button>().onClick.AddListener(OnClick);
-    }
-
+    bool dialogFin = false;
     void Update()
     {
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            || Input.GetButtonDown("Fire1"))
+        {
+            OnClick();
+        }
         currentText = dialogues[iText].Split(';');
-        if (delayedLetter < Time.time && currentText[2].Length > iLetter)
+        if (delayedLetter < Time.time && currentText[2].Length > iLetter && dialogFin == false)
         {
             delayedLetter = Time.time + delayLetter;
             iLetter++;
         }
-        GetComponentInChildren<Text>().text = currentText[2].Substring(0, iLetter);
+        GetComponent<Text>().text = currentText[2].Substring(0, iLetter);
     }
     
     void OnClick()
     {
-        print("is clicked");
         currentText = dialogues[iText].Split(';');
-        if (currentText[2].Length <= iLetter)
+        if (currentText[2].Length <= iLetter && dialogFin == false)
         {
-            print("change text");
             iLetter = 0;
-            iText++;
-        } else
+            dialogFin = true;
+            if (iText < dialogues.Length - 1)
+            {
+                dialogFin = false;
+                iText++;
+            }
+        } else if (dialogFin == false)
         {
-            print("full");
             iLetter = currentText[2].Length;
         }
     }
