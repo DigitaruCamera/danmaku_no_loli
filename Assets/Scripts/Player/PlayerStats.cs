@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void OnCollision2DEnter2D(Collision collision)
+    private void OnCollisionEnter2D(Collision collision)
     {
         print(collision.gameObject.tag);
         if ((collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "enemy")
@@ -49,7 +49,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void OnTrigger2DEnter2D(Collider other)
+    private void OnTriggerEnter2D(Collider other)
     {
         print(other.tag);
         if ((other.tag == "enemyBullet" || other.tag == "enemy")
