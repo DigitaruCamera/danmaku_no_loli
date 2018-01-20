@@ -121,14 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4595d572483e479af029122bc7ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
-  background1: {fileID: 1526617282142012, guid: 447872e1a1f31ba46984dacfbf556927,
-    type: 2}
-  background2: {fileID: 1472566632202444, guid: 690009b45b434fb488b88024d834de79,
-    type: 2}
-  background3: {fileID: 1301117736440706, guid: f711a1ad01127c247a8aece5736d0916,
-    type: 2}
-  background4: {fileID: 0}
+  background:
+  - {fileID: 1526617282142012, guid: 447872e1a1f31ba46984dacfbf556927, type: 2}
+  - {fileID: 1472566632202444, guid: 690009b45b434fb488b88024d834de79, type: 2}
+  - {fileID: 1301117736440706, guid: f711a1ad01127c247a8aece5736d0916, type: 2}
+  - {fileID: 1652043485518374}
 --- !u!114 &114816207806158006
 MonoBehaviour:
   m_ObjectHideFlags: 1

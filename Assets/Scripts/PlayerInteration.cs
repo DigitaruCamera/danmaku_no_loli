@@ -11,7 +11,6 @@ public class playerInteration : MonoBehaviour
     public float angle_bullet = 15f;
     float delayed_bomb = 0;
     float delayed_bullet = 0;
-    int point = 0;
     public Text UI_point;
     public GameObject UI_death;
     public GameObject UI_pause;
