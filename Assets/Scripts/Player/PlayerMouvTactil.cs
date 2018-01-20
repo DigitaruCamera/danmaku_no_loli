@@ -27,6 +27,12 @@ public class PlayerMouvTactil : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Vector2 mousePos = Input.GetTouch(0).position;
+            if (Input.GetButton("Fire1"))
+            {
+                print("mous mouve");
+                mousePos.x = Event.current.mousePosition.x;
+                mousePos.y = Camera.main.pixelHeight - Event.current.mousePosition.y;
+            }
             touchPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 15));
             if (isTouch == true || BlockOnCamera(touchPos + diffPos) != touchPos + diffPos)
             {

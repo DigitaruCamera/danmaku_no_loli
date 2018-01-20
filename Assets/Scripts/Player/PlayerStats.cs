@@ -32,7 +32,26 @@ public class PlayerStats : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "bulletEnemy" && UI_death != null)
+        if ((other.tag == "bulletEnemy" || other.tag == "enemy")
+            && UI_death != null)
+        {
+            UI_death.SetActive(true);
+        }
+    }
+
+    private void OnCollision2DEnter2D(Collision collision)
+    {
+        if ((collision.gameObject.tag == "bulletEnemy" || collision.gameObject.tag == "enemy")
+            && UI_death != null)
+        {
+            UI_death.SetActive(true);
+        }
+    }
+
+    private void OnTrigger2DEnter2D(Collider other)
+    {
+        if ((other.tag == "bulletEnemy" || other.tag == "enemy")
+            && UI_death != null)
         {
             UI_death.SetActive(true);
         }

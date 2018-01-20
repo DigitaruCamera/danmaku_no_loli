@@ -7,10 +7,10 @@ TagManager:
   - BackgroundCollider
   - PlayerBomb
   - PlayerBullet
-  - EnemyBullet
   - Enemy
   - Module
   - bulletSpawn
+  - enemyBullet
   layers:
   - Default
   - TransparentFX
