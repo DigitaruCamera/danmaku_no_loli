@@ -28,14 +28,12 @@ public class ButtonsFonctions : MonoBehaviour
 
 		public void PauseGame()
 		{
-			Time.timeScale =0;
-			GameObject.Find ("Player_physic").GetComponent<PlayerMouvTactil>().enabled = false;
+			Time.timeScale = 0;
 		}
 
 		public void PlayGame()
 		{
-			Time.timeScale =1;
-			GameObject.Find ("Player_physic").GetComponent<PlayerMouvTactil>().enabled = true;
+			Time.timeScale = 1;
 		}
 
 		public void HideCursor()
