@@ -12,12 +12,10 @@ public class PlayerStats : MonoBehaviour
     float delayed_bomb = 0;
     float delayed_bullet = 0;
     public Text UI_point;
-    public GameObject UI_death;
-    public GameObject UI_pause;
 
     public void Update()
     {
-        if (Input.touchCount >= 2 && delayed_bomb < Time.time)
+        if ((Input.touchCount >= 2 || Input.GetButtonDown("Fire2")) && delayed_bomb < Time.time)
         {
             delayed_bomb = Time.time + delay_bomb;
             GetComponent<actionPhysics>().useBomb();
@@ -31,31 +29,31 @@ public class PlayerStats : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        print(other.tag);
-        if ((other.tag == "enemyBullet" || other.tag == "enemy")
-            && UI_death != null)
+        if (other.tag == "enemyBullet" || other.tag == "enemy")
         {
-            UI_death.SetActive(true);
+            Destroy(other);
+            Time.timeScale = 0;
+            GetComponentInParent<Player>().deathEnable();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.gameObject.tag);
-        if ((collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "enemy")
-            && UI_death != null)
+        if (collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "enemy")
         {
-            UI_death.SetActive(true);
+            Destroy(collision.gameObject);
+            Time.timeScale = 0;
+            GetComponentInParent<Player>().deathEnable();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.tag);
-        if ((other.tag == "enemyBullet" || other.tag == "enemy")
-            && UI_death != null)
+        if (other.tag == "enemyBullet" || other.tag == "enemy")
         {
-            UI_death.SetActive(true);
+            Destroy(other.gameObject);
+            Time.timeScale = 0;
+            GetComponentInParent<Player>().deathEnable();
         }
     }
 }

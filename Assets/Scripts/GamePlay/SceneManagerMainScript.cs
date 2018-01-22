@@ -11,11 +11,18 @@ public class SceneManagerMainScript : MonoBehaviour {
 		
     public void LoadSceneCredit(string SceneName)
     {
-        int _Credit = 1;
         SceneManager.LoadScene(SceneName);
         if (GetComponent<Ads>() != null)
         {
-            GetComponent<Ads>().useCredit(_Credit);
+            GetComponent<Ads>().useCredit(1);
+        }
+    }
+
+    public void ContinueCredit()
+    {
+        if (FindObjectOfType<Player>() != null)
+        {
+            FindObjectOfType<Player>().deathDisableCredit();
         }
     }
 }

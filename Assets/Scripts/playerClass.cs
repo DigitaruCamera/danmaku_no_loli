@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 namespace dnl
 {
-    public class Score
+
+    class Score
     {
         string sceneName;
         public void Start()

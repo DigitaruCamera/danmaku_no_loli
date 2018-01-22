@@ -30,15 +30,4 @@ public class ModuleSpawner : MonoBehaviour {
 			if (salut == 4)
 				Instantiate (Module4, transform.position, transform.rotation);
 	}
-
-	void Update(){
-
-		int NbModule = GameObject.FindGameObjectsWithTag ("Module").Length;
-
-		if (NbModule < 4) {
-
-			print ("NeedModule");
-
-		}
-	}
 }
