@@ -25,14 +25,28 @@ public class PlayerStats : MonoBehaviour
             delayed_bullet = Time.time + delay_bullet;
             GetComponent<actionPhysics>().shotBullet(nb_bullet, angle_bullet);
         }
+        GetComponentInParent<Player>().BombBar(delayed_bomb, delay_bomb);
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "enemyBullet" || other.tag == "enemy")
+        if (other.tag == "enemyBullet")
         {
-            Destroy(other);
-            Time.timeScale = 0;
+            ParticleSystem particleSystem = other.GetComponent<ParticleSystem>();
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleSystem.particleCount];
+            ParticleSystem.Particle closeParticle = particles[0];
+            float closeRange = Vector3.Distance(particles[0].position, transform.position);
+            particleSystem.GetParticles(particles);
+            foreach (ParticleSystem.Particle currentParticle in particles)
+            {
+                float range = Vector3.Distance(currentParticle.position, transform.position);
+                if (range < closeRange)
+                {
+                    closeRange = range;
+                    closeParticle = currentParticle;
+                }
+            }
+            closeParticle.remainingLifetime = 0;
             GetComponentInParent<Player>().deathEnable();
         }
     }

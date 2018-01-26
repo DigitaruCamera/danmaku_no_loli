@@ -270,6 +270,11 @@ Prefab:
       propertyPath: SizeModule.enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
+        type: 2}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69f58fd0a599c1846904d545ee27759d, type: 2}
   m_IsPrefabParent: 0
@@ -315,6 +320,11 @@ Prefab:
     - target: {fileID: 1556380654498618, guid: 69f58fd0a599c1846904d545ee27759d, type: 2}
       propertyPath: m_TagString
       value: enemyBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
+        type: 2}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1280
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69f58fd0a599c1846904d545ee27759d, type: 2}
@@ -411,6 +421,11 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981885378613184, guid: 7d0da9bf625bdd942b095c3616ae3e30,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d0da9bf625bdd942b095c3616ae3e30, type: 2}
@@ -691,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_death: {fileID: 1060710011}
   UI_pause: {fileID: 507357982}
+  UI_bombBar: {fileID: 2044510755}
 --- !u!1001 &1869273162
 Prefab:
   m_ObjectHideFlags: 0
@@ -902,3 +918,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &2044510755 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114981885378613184, guid: 7d0da9bf625bdd942b095c3616ae3e30,
+    type: 2}
+  m_PrefabInternal: {fileID: 773242219}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}

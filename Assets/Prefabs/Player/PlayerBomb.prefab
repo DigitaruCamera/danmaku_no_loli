@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 50164454878858716}
   - component: {fileID: 58889719099404254}
   - component: {fileID: 114434748029788434}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: PlayerBomb
   m_TagString: PlayerBomb
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4503688006507952}
   - component: {fileID: 33482158322735474}
   - component: {fileID: 23543179607381446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,5 +160,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a205592c8b53c4f927f3c63e1f3471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bspeed: 0
-  lifeTime: 2

@@ -1,21 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerBomb : MonoBehaviour 
+public class PlayerBomb : MonoBehaviour
 {
 
-	public int Bspeed = 0;
-	public float lifeTime = 2;
-
-	void Start ()
-	{
-//		GetComponent<Rigidbody2D>().velocity = transform.up.normalized * Bspeed;
-//		GameObject.Find ("SceneManager").GetComponent<ui_score>().used += 1;
-//		Destroy (gameObject, lifeTime);
-	}
-
-    private void Update()
+    private void OnParticleCollision(GameObject other)
     {
-        print(GetComponent<Rigidbody2D>().velocity);
+        if (other.tag == "enemyBullet")
+        {
+            ParticleSystem particleSystem = other.GetComponent<ParticleSystem>();
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleSystem.particleCount];
+            ParticleSystem.Particle closeParticle = particles[0];
+            float closeRange = Vector3.Distance(particles[0].position, transform.position);
+            particleSystem.GetParticles(particles);
+            foreach (ParticleSystem.Particle currentParticle in particles)
+            {
+                float range = Vector3.Distance(currentParticle.position, transform.position);
+                if (range < closeRange)
+                {
+                    closeRange = range;
+                    closeParticle = currentParticle;
+                }
+            }
+            closeParticle.remainingLifetime = 0;
+        }
     }
 }
