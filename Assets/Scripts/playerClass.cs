@@ -14,12 +14,17 @@ namespace dnl
             sceneName = SceneManager.GetActiveScene().name;
         }
 
-        int getSceneScore()
+        public int getCurrentSceneScore()
         {
             return PlayerPrefs.GetInt(sceneName + "Score");
         }
 
-        string[] getAllScore()
+        public int getSceneScore(string scenename)
+        {
+            return PlayerPrefs.GetInt(sceneName + "Score");
+        }
+
+        public string[] getAllScore()
         {
             List<string> scores = new List<string>();
             int i = 0;
@@ -33,7 +38,7 @@ namespace dnl
             return scores.ToArray();
         }
 
-        void setSceneScore(int _score)
+        public void setSceneScore(int _score)
         {
             if (PlayerPrefs.GetInt(sceneName + "Score") < _score)
             {

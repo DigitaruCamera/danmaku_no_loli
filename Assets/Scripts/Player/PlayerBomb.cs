@@ -10,19 +10,36 @@ public class PlayerBomb : MonoBehaviour
         {
             ParticleSystem particleSystem = other.GetComponent<ParticleSystem>();
             ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleSystem.particleCount];
-            ParticleSystem.Particle closeParticle = particles[0];
-            float closeRange = Vector3.Distance(particles[0].position, transform.position);
+            int closeParticle = -1;
+            float closeRange = -1f;
             particleSystem.GetParticles(particles);
-            foreach (ParticleSystem.Particle currentParticle in particles)
+            for (int i = 0; i < particles.Length; i++)
             {
-                float range = Vector3.Distance(currentParticle.position, transform.position);
-                if (range < closeRange)
+                float range = Vector3.Distance(particles[i].position, transform.position);
+                if (range < closeRange || closeRange == -1)
                 {
                     closeRange = range;
-                    closeParticle = currentParticle;
+                    closeParticle = i;
                 }
             }
-            closeParticle.remainingLifetime = 0;
+            particles[closeParticle].remainingLifetime = -1;
+            particleSystem.SetParticles(particles, particles.Length);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "enemy")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "enemyBullet" || other.tag == "enemy")
+        {
+            Destroy(other.gameObject);
         }
     }
 }
