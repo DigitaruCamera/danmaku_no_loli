@@ -145,24 +145,26 @@ public class Player : MonoBehaviour {
     {
         if (sensImage)
         {
-            foreach (Sprite img in spriteDialogue)
+            for (int i = 0 ; i < spriteDialogue.Length ; i++)
             {
-                print(img.name + " == " + currentDialogue[0]);
-                if (img.name == currentDialogue[0])
+                print(spriteDialogue[i].name + " == " + currentDialogue[0]);
+                if (spriteDialogue[i].name == currentDialogue[0])
                 {
                     print("oui");
-                    if (imgRightDialogue != null) imgRightDialogue.sprite = img;
-                    if (imgLeftDialogue != null) imgRightDialogue.sprite = null;
+                    if (imgRightDialogue != null) imgRightDialogue.sprite = spriteDialogue[i];
+                    if (imgLeftDialogue != null) imgLeftDialogue.sprite = null;
                 }
             }
         } else
         {
-            foreach (Sprite img in spriteDialogue)
+            for (int i = 0 ; i < spriteDialogue.Length; i++)
             {
-                if (img.name == currentDialogue[0])
+                print(spriteDialogue[i].name + " == " + currentDialogue[0]);
+                if (spriteDialogue[i].name == currentDialogue[0])
                 {
-                    if (imgLeftDialogue != null) imgRightDialogue.sprite = img;
+                    print("oui");
                     if (imgRightDialogue != null) imgRightDialogue.sprite = null;
+                    if (imgLeftDialogue != null) imgLeftDialogue.sprite = spriteDialogue[i];
                 }
             }
         }
