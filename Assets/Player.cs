@@ -92,14 +92,16 @@ public class Player : MonoBehaviour {
     public Text UI_dialogue;
     public Image imgRightDialogue;
     public Image imgLeftDialogue;
+    public Image imgRightEmotion;
+    public Image imgLeftEmotion;
     public float delayLetterDialogue = 0.1f;
     public string[] dialogues;
     public Sprite[] spriteDialogue;
+    public Sprite[] spriteEmotion;
     float delayedLetter = 0;
     int iLetter = 0;
     int iText = 0;
     string[] currentDialogue;
-    bool dialogFin = false;
     bool sensImage = true;
     bool allDialogueEnd = false;
     IEnumerator Depart()
@@ -116,6 +118,12 @@ public class Player : MonoBehaviour {
         imgRightDialogue.gameObject.transform.parent.gameObject.SetActive(false);
     }
 
+    private void Start()
+    {
+        currentDialogue = dialogues[iText].Split(';');
+        setImage();
+    }
+
     void Dialogue()
     {
         if (dialogues.Length == iText && allDialogueEnd == false)
@@ -126,13 +134,12 @@ public class Player : MonoBehaviour {
         else if (dialogues.Length != iText)
         {
             Time.timeScale = 0;
-            currentDialogue = dialogues[iText].Split(';');
             if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 || Input.GetButtonDown("Fire1"))
             {
                 clickDialogue();
             }
-            if (delayedLetter < unscaledTime && currentDialogue[2].Length > iLetter && dialogFin == false)
+            if (delayedLetter < unscaledTime && currentDialogue[2].Length > iLetter)
             {
                 delayedLetter = unscaledTime + delayLetterDialogue;
                 iLetter++;
@@ -145,46 +152,66 @@ public class Player : MonoBehaviour {
     {
         if (sensImage)
         {
-            for (int i = 0 ; i < spriteDialogue.Length ; i++)
+            for (int i = 0; i < spriteDialogue.Length; i++)
             {
-                print(spriteDialogue[i].name + " == " + currentDialogue[0]);
                 if (spriteDialogue[i].name == currentDialogue[0])
                 {
-                    print("oui");
+                    if (imgLeftDialogue != null) imgLeftDialogue.enabled = false;
+                    if (imgRightDialogue != null) imgRightDialogue.enabled = true;
                     if (imgRightDialogue != null) imgRightDialogue.sprite = spriteDialogue[i];
-                    if (imgLeftDialogue != null) imgLeftDialogue.sprite = null;
+                }
+            }
+            for (int i = 0; i < spriteEmotion.Length; i++)
+            {
+                if (spriteEmotion[i].name == currentDialogue[1])
+                {
+                    if (imgLeftEmotion != null) imgLeftEmotion.enabled = false;
+                    if (imgRightEmotion != null) imgRightEmotion.enabled = true;
+                    if (imgRightEmotion != null) imgRightEmotion.sprite = spriteEmotion[i];
                 }
             }
         } else
         {
             for (int i = 0 ; i < spriteDialogue.Length; i++)
             {
-                print(spriteDialogue[i].name + " == " + currentDialogue[0]);
                 if (spriteDialogue[i].name == currentDialogue[0])
                 {
-                    print("oui");
-                    if (imgRightDialogue != null) imgRightDialogue.sprite = null;
+                    if (imgRightDialogue != null) imgRightDialogue.enabled = false;
+                    if (imgLeftDialogue != null) imgLeftDialogue.enabled = true;
                     if (imgLeftDialogue != null) imgLeftDialogue.sprite = spriteDialogue[i];
                 }
             }
+            for (int i = 0; i < spriteEmotion.Length; i++)
+            {
+                if (spriteEmotion[i].name == currentDialogue[1])
+                {
+                    if (imgRightEmotion != null) imgRightEmotion.enabled = false;
+                    if (imgLeftEmotion != null) imgLeftEmotion.enabled = true;
+                    if (imgLeftEmotion != null) imgLeftEmotion.sprite = spriteEmotion[i];
+                }
+            }
+        }
+        if (dialogues.Length <= iText)
+        {
+            if (imgRightDialogue != null) imgRightDialogue.enabled = false;
+            if (imgLeftDialogue != null) imgLeftDialogue.enabled = false;
+            if (imgRightEmotion != null) imgRightEmotion.enabled = false;
+            if (imgLeftEmotion != null) imgLeftEmotion.enabled = false;
         }
     }
 
     void clickDialogue()
     {
-        setImage();
-        if (currentDialogue[2].Length <= iLetter && dialogFin == false)
+        if (currentDialogue[2].Length <= iLetter)
         {
             iLetter = 0;
-            dialogFin = true;
-            if (iText < dialogues.Length)
-            {
-                sensImage = !sensImage;
-                dialogFin = false;
-                iText++;
-            }
+            iText++;
+            if (dialogues.Length > iText)
+                currentDialogue = dialogues[iText].Split(';');
+            sensImage = !sensImage;
+            setImage();
         }
-        else if (dialogFin == false)
+        else
         {
             iLetter = currentDialogue[2].Length;
         }
