@@ -19,6 +19,7 @@ ModelImporter:
     3300004: Hair
     4300000: Body
     4300002: Hair
+    4300004: Player_LowPoly
   externalObjects:
   - first:
       type: UnityEngine:Material
