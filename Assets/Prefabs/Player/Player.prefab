@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4485141969659804}
   m_Layer: 8
-  m_Name: mainBulletSpawn
+  m_Name: mainBulletSpawn (2)
   m_TagString: bulletSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,9 +577,25 @@ GameObject:
   - component: {fileID: 50473345630437298}
   - component: {fileID: 114803102448675656}
   - component: {fileID: 114381989316975104}
+  - component: {fileID: 95095795959235920}
   m_Layer: 8
   m_Name: Player_physic
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1688701897720068
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4656871696001524}
+  m_Layer: 8
+  m_Name: mainBulletSpawn (1)
+  m_TagString: bulletSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,7 +765,7 @@ Transform:
   m_Children:
   - {fileID: 4597723549461166}
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5}
 --- !u!4 &4082570978868278
 Transform:
@@ -792,7 +808,7 @@ Transform:
   m_Children:
   - {fileID: 4488377829071208}
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
 --- !u!4 &4485141969659804
 Transform:
@@ -800,12 +816,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247697337224148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4488377829071208
 Transform:
@@ -846,6 +862,19 @@ Transform:
   m_Father: {fileID: 4035395402571000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!4 &4656871696001524
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688701897720068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4775016384415154}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4683900740953096
 Transform:
   m_ObjectHideFlags: 1
@@ -873,7 +902,7 @@ Transform:
   m_Children:
   - {fileID: 4138546780446548}
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
 --- !u!4 &4729197140981620
 Transform:
@@ -886,7 +915,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4775016384415154
 Transform:
@@ -898,6 +927,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4656871696001524}
   - {fileID: 4485141969659804}
   - {fileID: 4187954436861962}
   - {fileID: 4035395402571000}
@@ -932,7 +962,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4924114224799534
 Transform:
@@ -946,7 +976,7 @@ Transform:
   m_Children:
   - {fileID: 4569389089018844}
   m_Father: {fileID: 4775016384415154}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5}
 --- !u!4 &4969730649581542
 Transform:
@@ -1316,6 +1346,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712638630897376}
   m_Enabled: 1
+--- !u!95 &95095795959235920
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665445988957490}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3cbe0867d22cd8a49bb9885864dff743, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95915987448724056
 Animator:
   serializedVersion: 3
@@ -1509,7 +1556,7 @@ MonoBehaviour:
   imgLeftEmotion: {fileID: 114867345720205424}
   delayLetterDialogue: 0.1
   dialogues:
-  - PlayerBase;ExperssionHappy;Bonjours je suis un poney  gris
+  - "PlayerBase;ExperssionHappy;Bonjours je suis un texte tr\xE8s serieux"
   - MechanBase;ExperssionSad;moi je suis le perso de gauche
   - PlayerBase;ExperssionHappy;et moi celui de droite
   spriteDialogue:
@@ -1663,9 +1710,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay_bomb: 5
-  delay_bullet: 0.15
-  nb_bullet: 3
-  angle_bullet: 3
+  delay_bullet: 0.1
+  nb_bullet: 0
+  angle_bullet: 5
 --- !u!114 &114389414485963886
 MonoBehaviour:
   m_ObjectHideFlags: 1

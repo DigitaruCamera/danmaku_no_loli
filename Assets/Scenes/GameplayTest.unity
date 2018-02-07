@@ -371,12 +371,17 @@ Prefab:
     - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
         type: 2}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.04827571
+      value: 0.716
       objectReference: {fileID: 0}
     - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
         type: 2}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198636069297780504, guid: 69f58fd0a599c1846904d545ee27759d,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2106669416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69f58fd0a599c1846904d545ee27759d, type: 2}

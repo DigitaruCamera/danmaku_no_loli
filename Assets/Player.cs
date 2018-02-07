@@ -106,11 +106,7 @@ public class Player : MonoBehaviour {
     bool allDialogueEnd = false;
     IEnumerator Depart()
     {
-        if (UI_dialogue != null) UI_dialogue.text = "3";
-        yield return new WaitForSecondsRealtime(1);
-        if (UI_dialogue != null) UI_dialogue.text = "2";
-        yield return new WaitForSecondsRealtime(1);
-        if (UI_dialogue != null) UI_dialogue.text = "1";
+        if (UI_dialogue != null) UI_dialogue.text = "Ready ?";
         yield return new WaitForSecondsRealtime(1);
         if (UI_dialogue != null) UI_dialogue.text = "GO";
         yield return new WaitForSecondsRealtime(0.2f);

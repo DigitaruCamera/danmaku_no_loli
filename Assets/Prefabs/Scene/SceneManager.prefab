@@ -64,7 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d633d405a101344f98d743d15ea3064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1469774466482342, guid: 7d0da9bf625bdd942b095c3616ae3e30, type: 2}
   loadingImage: {fileID: 1045476534021280, guid: bb227da12ae12654daf717c30a936cd9,
     type: 2}
 --- !u!114 &114963432646463844
