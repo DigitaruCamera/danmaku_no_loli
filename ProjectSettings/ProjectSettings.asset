@@ -247,7 +247,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/GitHub/danmaku_no_loli/user.keystore
-  AndroidKeyaliasName: dnlkeys
+  AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
