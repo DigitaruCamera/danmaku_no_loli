@@ -38,7 +38,7 @@ public class actionPhysics : MonoBehaviour
                 {
                     GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation * Quaternion.Euler(0, 0, angle)) as GameObject;
                     bullet.name = bulletPrefab.name;
-                    Destroy(bullet, 3f);
+                    Destroy(bullet, 1f);
                 }
             }
         }

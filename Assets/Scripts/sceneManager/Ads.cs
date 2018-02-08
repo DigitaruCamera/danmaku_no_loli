@@ -20,6 +20,8 @@ public class Ads : MonoBehaviour {
 
     private void Start()
     {
+//		Advertisement.Initialize(string 1638501);
+
         if (PlayerPrefs.GetInt("FirstCo") == 0)
         {
             PlayerPrefs.SetInt("FirstCo", 1);
