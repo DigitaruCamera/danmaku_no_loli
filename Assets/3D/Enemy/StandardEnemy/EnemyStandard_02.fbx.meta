@@ -1,28 +1,17 @@
 fileFormatVersion: 2
-guid: 4cd2cab453dc79848b7e6e5bbec69098
-timeCreated: 1516208365
+guid: 4d0c2c34d9843c94b9a056abf384bb18
+timeCreated: 1518190159
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: base_05
-    2100002: solidify_enemy
+    2100000: base02
     2300000: //RootNode
     3300000: //RootNode
-    4300000: enemy_05
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: base_05
-    second: {fileID: 2100000, guid: d04c412793739e74096aa7f11b1e0c43, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: solidify_enemy
-    second: {fileID: 2100000, guid: a3a5a56d0851c434db4b7dc8090da30d, type: 2}
+    4300000: enemy02
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
