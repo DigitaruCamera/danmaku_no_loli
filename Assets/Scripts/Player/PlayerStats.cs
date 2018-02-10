@@ -9,16 +9,32 @@ public class PlayerStats : MonoBehaviour
     public float delay_bullet = 0.5f;
     public float nb_bullet = 3f;
     public float angle_bullet = 15f;
+    public int mode = 0;
+    public AnimationClip []modesAnims;
     float delayed_bomb = 0;
     float delayed_bullet = 0;
     int currentScore = 0;
 
+    bool changedMode = false;
     public void Update()
     {
-        if ((Input.touchCount >= 2 || Input.GetButtonDown("Fire2")) && delayed_bomb < Time.time)
+        if (((Input.touchCount >= 2 && Input.GetTouch(1).deltaPosition.y > 5f)
+            || (Input.touchCount == 0 && Input.GetButtonDown("Fire2")))
+                && delayed_bomb < Time.time && Time.timeScale != 0)
         {
             delayed_bomb = Time.time + delay_bomb;
-            GetComponent<actionPhysics>().useBomb();
+			GetComponent<actionPhysics> ().useBomb ();
+        }
+        if (((Input.touchCount >= 2 && Input.GetTouch(1).deltaPosition.y < -5f && changedMode == false )
+            || (Input.touchCount == 0 && Input.GetButtonDown("Fire3")))
+                && Time.timeScale != 0)
+        {
+            changedMode = true;
+            mode = GetComponent<actionPhysics>().changeMode(modesAnims, mode);
+        }
+        if (Input.touchCount < 2)
+        {
+            changedMode = false;
         }
         if (delayed_bullet < Time.time)
         {

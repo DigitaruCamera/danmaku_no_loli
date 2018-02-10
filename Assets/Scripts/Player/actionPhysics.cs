@@ -18,6 +18,20 @@ public class actionPhysics : MonoBehaviour
         oldPosition = newPosition;
     }
 
+    public int changeMode(AnimationClip[] anims, int currentMode)
+    {
+        if (anims.Length != 0)
+        {
+            currentMode++;
+            if (currentMode >= anims.Length)
+            {
+                currentMode = 0;
+            }
+            GetComponentInChildren<Animator>().Play(anims[currentMode].name);
+        }
+        return currentMode;
+    }
+
     public void useBomb()
     {
         GameObject bomb = Instantiate(bombPrebab, transform.position, transform.rotation) as GameObject;
@@ -28,17 +42,19 @@ public class actionPhysics : MonoBehaviour
 
     public void shotBullet(float nb_bullet, float angle_bullet)
     {
-        float i = -1;
-        while (i++ < nb_bullet)
+        foreach (Transform bulletSpawn in GetComponentsInChildren<Transform>())
         {
-            float angle = ((i / nb_bullet) * angle_bullet) - (angle_bullet / 2);
-            foreach (Transform bulletSpawn in transform)
-            {
-                if(bulletSpawn.gameObject.tag == "bulletSpawn")
-                {
-                    GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation * Quaternion.Euler(0, 0, angle)) as GameObject;
+            if(bulletSpawn.gameObject.tag == "bulletSpawn")
+			{
+				float i = 0;
+				while (i < nb_bullet)
+				{
+					float angle = ((i / nb_bullet) * angle_bullet) - (angle_bullet / 2);
+                    Quaternion spawnRot = new Quaternion(bulletSpawn.rotation.x, 0, bulletSpawn.rotation.z, bulletSpawn.rotation.w);
+                    GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, spawnRot * Quaternion.Euler(0, 0, angle)) as GameObject;
                     bullet.name = bulletPrefab.name;
-                    Destroy(bullet, 1f);
+					Destroy (bullet, 1f);
+					i++;
                 }
             }
         }

@@ -15,7 +15,7 @@ public class dialogue : MonoBehaviour {
     void Dialogue()
     {
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            || Input.GetButtonDown("Fire1"))
+            || (Input.touchCount == 0 && Input.GetButtonDown("Fire1")))
         {
             if (currentText[2].Length <= iLetter && dialogFin == false)
             {

@@ -11,6 +11,7 @@ TagManager:
   - Module
   - bulletSpawn
   - enemyBullet
+  - creditUI
   layers:
   - Default
   - TransparentFX

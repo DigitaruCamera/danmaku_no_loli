@@ -8,13 +8,16 @@ public class Ads : MonoBehaviour {
     public int Credit_max = 10;
     public int Credit_gain = 1;
     public int Credit_gain_delay = 3600;
-    public Text Credit_Ui;
 
     private void Update()
     {
-        if (Credit_Ui != null)
+        foreach(GameObject UI in GameObject.FindGameObjectsWithTag("creditUI"))
         {
-            Credit_Ui.text = "" + getCredit();
+            Text Credit_UI = UI.GetComponent<Text>();
+            if (Credit_UI != null)
+            {
+                Credit_UI.text = "" + getCredit();
+            }
         }
     }
 

@@ -36,7 +36,7 @@ public class PlayerMouv : MonoBehaviour
             }
             GetComponent<Rigidbody2D>().MovePosition(BlockOnCamera(touchPos + diffPos));
         }
-        else if (Input.GetButton("Fire1"))
+        else if (Input.touchCount == 0 && Input.GetButton("Fire1"))
         {
             Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             touchPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 15));

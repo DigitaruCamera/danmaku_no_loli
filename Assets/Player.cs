@@ -95,6 +95,7 @@ public class Player : MonoBehaviour {
     public Image imgRightEmotion;
     public Image imgLeftEmotion;
     public float delayLetterDialogue = 0.1f;
+    public float delayBeforeStart = 0.5f;
     public string[] dialogues;
     public Sprite[] spriteDialogue;
     public Sprite[] spriteEmotion;
@@ -104,12 +105,13 @@ public class Player : MonoBehaviour {
     string[] currentDialogue;
     bool sensImage = true;
     bool allDialogueEnd = false;
+
     IEnumerator Depart()
     {
         if (UI_dialogue != null) UI_dialogue.text = "Ready ?";
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(delayBeforeStart);
         if (UI_dialogue != null) UI_dialogue.text = "GO";
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(delayBeforeStart);
         Time.timeScale = 1;
         imgRightDialogue.gameObject.transform.parent.gameObject.SetActive(false);
     }
@@ -131,7 +133,7 @@ public class Player : MonoBehaviour {
         {
             Time.timeScale = 0;
             if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-                || Input.GetButtonDown("Fire1"))
+                || (Input.touchCount == 0 && Input.GetButtonDown("Fire1")))
             {
                 clickDialogue();
             }
