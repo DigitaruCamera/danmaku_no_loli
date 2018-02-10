@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4594965211347530}
   - component: {fileID: 114499266086263044}
   - component: {fileID: 114963432646463844}
-  - component: {fileID: 114959038686292770}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -53,17 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06dd2a10803e1e64c8d88399f58ef7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114959038686292770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1869314910850552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d633d405a101344f98d743d15ea3064, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   loadingImage: {fileID: 1045476534021280, guid: bb227da12ae12654daf717c30a936cd9,
     type: 2}
 --- !u!114 &114963432646463844
@@ -80,4 +68,3 @@ MonoBehaviour:
   Credit_max: 10
   Credit_gain: 1
   Credit_gain_delay: 3600
-  Credit_Ui: {fileID: 0}
