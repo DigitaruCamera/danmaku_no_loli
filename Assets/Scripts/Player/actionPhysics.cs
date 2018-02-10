@@ -7,6 +7,7 @@ public class actionPhysics : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject bombPrebab;
+    public float delayImmortal = 2;
     Vector2 oldPosition;
     Vector2 directionBomb;
 
@@ -58,5 +59,32 @@ public class actionPhysics : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator becameMortal(float delay)
+    {
+        float i = 0;
+        float inc = delay / 20;
+        while (i < delay)
+        {
+            foreach (Renderer current in GetComponentsInChildren<Renderer>())
+            {
+                current.enabled = !current.enabled;
+            }
+            i += inc;
+            yield return new WaitForSecondsRealtime(inc);
+        }
+
+        foreach (Renderer current in GetComponentsInChildren<Renderer>())
+        {
+            current.enabled = true;
+        }
+        GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void becameInvinsible()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(becameMortal(delayImmortal));
     }
 }

@@ -7,10 +7,6 @@ public class SceneManagerMainScript : MonoBehaviour
 {
     public GameObject loadingImage;
 
-    void Start () {
-		Time.timeScale = 1;
-	}
-
     public void LoadScene(string SceneName)
     {
         loadingImage.SetActive(true);
@@ -46,8 +42,9 @@ public class SceneManagerMainScript : MonoBehaviour
     public void ContinueCredit()
     {
         loadingImage.SetActive(true);
-        if (FindObjectOfType<Player>() != null)
+        if (FindObjectOfType<Player>() != null && FindObjectOfType<actionPhysics>() != null)
         {
+            FindObjectOfType<actionPhysics>().becameInvinsible();
             FindObjectOfType<Player>().deathDisableCredit();
         }
     }

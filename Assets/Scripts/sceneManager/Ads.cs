@@ -64,7 +64,6 @@ public class Ads : MonoBehaviour {
     {
         PlayerPrefs.SetInt("credit", Mathf.Clamp(PlayerPrefs.GetInt("credit") - _credit, 0, Credit_max));
     }
-#if UNITY_ANDROID || UNITY_IPHONE
     public void showAds()
     {
         if (Advertisement.IsReady("rewardedVideo"))
@@ -74,6 +73,7 @@ public class Ads : MonoBehaviour {
             Advertisement.Show("rewardedVideo", options);
         }
     }
+
     private void HandleShowResult(ShowResult result)
     {
         switch (result)
@@ -89,5 +89,4 @@ public class Ads : MonoBehaviour {
                 break;
         }
     }
-#endif
 }

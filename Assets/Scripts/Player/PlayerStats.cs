@@ -18,6 +18,8 @@ public class PlayerStats : MonoBehaviour
     bool changedMode = false;
     public void Update()
     {
+        GetComponentInParent<Player>().BombBar(delayed_bomb, delay_bomb);
+        GetComponentInParent<Player>().affScore(currentScore);
         if (((Input.touchCount >= 2 && Input.GetTouch(1).deltaPosition.y > 5f)
             || (Input.touchCount == 0 && Input.GetButtonDown("Fire2")))
                 && delayed_bomb < Time.time && Time.timeScale != 0)
@@ -42,8 +44,6 @@ public class PlayerStats : MonoBehaviour
             delayed_bullet = Time.time + delay_bullet;
             GetComponent<actionPhysics>().shotBullet(nb_bullet, angle_bullet);
         }
-        GetComponentInParent<Player>().BombBar(delayed_bomb, delay_bomb);
-        GetComponentInParent<Player>().affScore(currentScore);
     }
 
     private void OnParticleCollision(GameObject other)

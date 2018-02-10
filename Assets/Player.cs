@@ -4,19 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using dnl;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     public GameObject UI_death;
     public GameObject UI_pause;
     public Image UI_bombBar;
     public Text UI_point;
+    public Text UI_timer_min;
+    public Text UI_timer_sec;
+    public Text UI_timer_mil;
     float unscaledTime;
     bool pause = false;
     bool death = false;
 
-    void Update ()
+    void Update()
     {
-        unscaledTime += Time.unscaledDeltaTime;
+        affTimer();
         Dialogue();
+        unscaledTime += Time.unscaledDeltaTime;
     }
 
     public void pauseDisable()
@@ -73,7 +78,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void BombBar (float timebomb, float delay_bomb)
+    public void BombBar(float timebomb, float delay_bomb)
     {
         float percent_bomb = Mathf.Clamp((timebomb - Time.time) / delay_bomb, 0f, 1f);
         if (UI_bombBar != null) UI_bombBar.fillAmount = 1 - percent_bomb;
@@ -87,6 +92,13 @@ public class Player : MonoBehaviour {
     public void saveScore(int currentScore)
     {
         new Score().setSceneScore(currentScore);
+    }
+
+    public void affTimer()
+    {
+        if (UI_timer_min != null) UI_timer_min.text = "" + ((int)((Time.fixedTime / 60) % 60)).ToString("00");
+        if (UI_timer_sec != null) UI_timer_sec.text = "" + ((int)(Time.fixedTime % 60)).ToString("00");
+        if (UI_timer_mil != null) UI_timer_mil.text = "" + ((int)((Time.fixedTime * 100) % 100)).ToString("00");
     }
 
     public Text UI_dialogue;
@@ -118,6 +130,7 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
+        Time.timeScale = 0;
         currentDialogue = dialogues[iText].Split(';');
         setImage();
     }
@@ -131,7 +144,6 @@ public class Player : MonoBehaviour {
         }
         else if (dialogues.Length != iText)
         {
-            Time.timeScale = 0;
             if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 || (Input.touchCount == 0 && Input.GetButtonDown("Fire1")))
             {
@@ -168,9 +180,10 @@ public class Player : MonoBehaviour {
                     if (imgRightEmotion != null) imgRightEmotion.sprite = spriteEmotion[i];
                 }
             }
-        } else
+        }
+        else
         {
-            for (int i = 0 ; i < spriteDialogue.Length; i++)
+            for (int i = 0; i < spriteDialogue.Length; i++)
             {
                 if (spriteDialogue[i].name == currentDialogue[0])
                 {
