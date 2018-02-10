@@ -18,6 +18,15 @@ public class SceneManagerMainScript : MonoBehaviour {
         }
     }
 
+    public void LoadSameSceneCredit()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (GetComponent<Ads>() != null)
+        {
+            GetComponent<Ads>().useCredit(1);
+        }
+    }
+
     public void ContinueCredit()
     {
         if (FindObjectOfType<Player>() != null)
