@@ -41,11 +41,20 @@ public class SceneManagerMainScript : MonoBehaviour
 
     public void ContinueCredit()
     {
-        loadingImage.SetActive(true);
         if (FindObjectOfType<Player>() != null && FindObjectOfType<actionPhysics>() != null)
         {
             FindObjectOfType<actionPhysics>().becameInvinsible();
             FindObjectOfType<Player>().deathDisableCredit();
         }
     }
+
+	public void PauseGame()
+	{
+		Time.timeScale = 0;
+	}
+
+	public void PlayGame()
+	{
+		Time.timeScale = 1;
+	}
 }
