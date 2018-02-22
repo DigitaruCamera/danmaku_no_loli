@@ -17,25 +17,20 @@ public class LazerBullet : MonoBehaviour {
 
 	void Update (){
 
-		if (CanLook == true) {
+		if (CanLook == true)
+        {
 			transform.LookAt (TransTarget);
-			}
-		if (CanLook == false) {
-			print ("rip");
-			}
 		}
+	}
 
 	IEnumerator Wait(){
 		CanLook = true;
 		yield return new WaitForSeconds(3f);
 		CanLook = false;
 		yield return new WaitForSeconds(1f);
-		print ("looooool");
 		transform.GetChild (0).gameObject.SetActive (false);
 		transform.GetChild (1).gameObject.SetActive (true);
 		Destroy(gameObject, 2);
-
-
 	}
 
 }

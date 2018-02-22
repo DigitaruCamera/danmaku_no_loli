@@ -18,6 +18,10 @@ public class PlayerStats : MonoBehaviour
     bool changedMode = false;
     public void Update()
     {
+        float dist = Mathf.Abs(transform.position.z - Camera.main.transform.position.z);
+        float topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
+        float bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
+        float coef_delay_bullet = ((transform.position.y - bottomBorder) / (topBorder - bottomBorder) + 1) / 2;
         GetComponentInParent<Player>().BombBar(delayed_bomb, delay_bomb);
         GetComponentInParent<Player>().affScore(currentScore);
         if (((Input.touchCount >= 2 && Input.GetTouch(1).deltaPosition.y > 5f)
@@ -41,7 +45,7 @@ public class PlayerStats : MonoBehaviour
         if (delayed_bullet < Time.time)
         {
             currentScore += 1;
-            delayed_bullet = Time.time + delay_bullet;
+            delayed_bullet = Time.time + (delay_bullet * coef_delay_bullet);
             GetComponent<actionPhysics>().shotBullet(nb_bullet, angle_bullet);
         }
     }
