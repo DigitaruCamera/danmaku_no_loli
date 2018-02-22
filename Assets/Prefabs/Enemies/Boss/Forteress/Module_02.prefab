@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988274831490690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: -19.949741, y: -11.864608, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4214175322842960}
@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c48786206dd414b8c20b2298cba052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequence: 1
-  EnemyBullet: {fileID: 1333549526984556, guid: d835ca832ad443a4ea537a1a87c6313e,
+  frequence: 25
+  EnemyBullet: {fileID: 1012240998927772, guid: ead8607dd8b021f47aced383dfe73664,
     type: 2}
 --- !u!114 &114605899350741922
 MonoBehaviour:

@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747878184587510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: -18.382845, y: -11.19308, z: -8.665764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911711521455706}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815244261319778}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.00000003090862, y: 0.7071068, z: 0.7071068, w: -0.00000003090862}
   m_LocalPosition: {x: -0, y: -0.5, z: 1.1}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -142,7 +142,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927938648297702}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.00000003090862, y: 0.7071068, z: 0.7071068, w: -0.00000003090862}
   m_LocalPosition: {x: -0, y: 0.5, z: 1.1}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c48786206dd414b8c20b2298cba052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequence: 1
-  EnemyBullet: {fileID: 1333549526984556, guid: d835ca832ad443a4ea537a1a87c6313e,
+  frequence: 30
+  EnemyBullet: {fileID: 1012240998927772, guid: ead8607dd8b021f47aced383dfe73664,
     type: 2}
 --- !u!114 &114463971558551956
 MonoBehaviour:
@@ -350,6 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c48786206dd414b8c20b2298cba052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequence: 1
-  EnemyBullet: {fileID: 1333549526984556, guid: d835ca832ad443a4ea537a1a87c6313e,
+  frequence: 20
+  EnemyBullet: {fileID: 1012240998927772, guid: ead8607dd8b021f47aced383dfe73664,
     type: 2}
