@@ -1,40 +1,22 @@
 fileFormatVersion: 2
-guid: 052e07a95129d644b9e58d82dc0c4901
-timeCreated: 1516217885
+guid: e6081a95967f22a4d92bbee0cc1dc6ec
+timeCreated: 1519484501
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: module
-    100002: support
-    100004: //RootNode
-    100006: wall
-    400000: module
-    400002: support
-    400004: //RootNode
-    400006: wall
-    2100000: No Name
-    2100002: Fortress_mat
-    2300000: module
-    2300002: support
-    2300004: wall
-    3300000: module
-    3300002: support
-    3300004: wall
-    4300000: module
-    4300002: support
-    4300004: wall
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Stage1_mat
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Stage1_building1
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Fortress_mat
-    second: {fileID: 2100000, guid: 553e33d641438914cbac8ea63ea051d2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 10872a79cb386a34592dd4ebd9d1ef46, type: 2}
+      name: Stage1_mat
+    second: {fileID: 2100000, guid: 32a4c952e4489804d9240bc93251db8a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

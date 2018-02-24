@@ -51,7 +51,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fortress_mat
-    second: {fileID: 2100000, guid: 10872a79cb386a34592dd4ebd9d1ef46, type: 2}
+    second: {fileID: 2100000, guid: 30a1a3e32afcfe04da281efb90c4442d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

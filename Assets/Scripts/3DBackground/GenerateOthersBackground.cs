@@ -11,7 +11,7 @@ public class GenerateOthersBackground : MonoBehaviour
 		if (coll.gameObject.tag == "BackgroundCollider") {
 
 			int salut = Random.Range (0, background.Length - 1);
-            Instantiate(background[salut], new Vector3(0, 20, 24), transform.rotation);
+            Instantiate(background[salut], new Vector3(0, 20, 25), transform.rotation);
 		}
 
 	}
