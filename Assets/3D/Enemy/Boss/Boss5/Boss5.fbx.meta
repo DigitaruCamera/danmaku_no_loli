@@ -1,26 +1,23 @@
 fileFormatVersion: 2
-guid: 0a2e3b229d60b6849a621fcca65b253a
-timeCreated: 1519479566
+guid: 23ed52e9278e5754aa402023da923430
+timeCreated: 1519506353
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Player_mat
-    2100002: Outline
-    2100004: Boss_mat
+    2100000: Boss_mat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Body_new.001
-    4300002: Body_boss
-    4300004: Body_boss1
+    4300000: Body_boss
+    4300002: Body_boss5
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Boss_mat
-    second: {fileID: 2100000, guid: e4d66f9f60bfd104b9c335166c385725, type: 2}
+    second: {fileID: 2100000, guid: 32a4c952e4489804d9240bc93251db8a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,9 +1,18 @@
 fileFormatVersion: 2
 guid: 5815e5a07a452f64ab32b8971470bfa8
-timeCreated: 1514559106
+timeCreated: 1519509419
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: ButtonsMain_02_0
+    21300002: ButtonsMain_02_1
+    21300004: ButtonsMain_02_2
+    21300006: ButtonsMain_02_3
+    21300008: ButtonsMain_02_4
+    21300010: ButtonsMain_02_5
+    21300012: ButtonsMain_02_6
+    21300014: ButtonsMain_02_7
+    21300016: ButtonsMain_02_8
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -96,9 +105,219 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ButtonsMain_02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98
+        width: 329
+        height: 49
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 98
+        width: 329.33334
+        height: 49
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_2
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 98
+        width: 329.33334
+        height: 49
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_4
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_5
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 49
+        width: 329.33334
+        height: 49
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 329.33334
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -23.5}
+        - {x: -164, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 329.33334
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ButtonsMain_02_8
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 0
+        width: 329.33334
+        height: 49
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164.66667, y: -24.5}
+        - {x: 164.66667, y: 24.5}
+      physicsShape:
+      - - {x: -164.66667, y: 24.5}
+        - {x: -164.66667, y: -24.5}
+        - {x: 164, y: -24.5}
+        - {x: 164.66667, y: -23.5}
+        - {x: 164.66667, y: 24.5}
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

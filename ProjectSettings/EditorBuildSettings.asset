@@ -17,3 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameplayTest.unity
     guid: 0e7efef5c494f59428c23645818af0bc
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage1.unity
+    guid: f6de78bc34fc0e54499f8057eaa6c88f
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage2.unity
+    guid: ec8b6773a8edfcb49b3553834274e5c5
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage3.unity
+    guid: 77e54c19ec0de96489267cc3c738670c
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage4.unity
+    guid: 5b30b773f698fea47ab7b1947210c043
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage5.unity
+    guid: 18cfd4d310dcf414eb2818ae1dadbe81

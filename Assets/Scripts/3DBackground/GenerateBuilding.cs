@@ -12,5 +12,4 @@ public class GenerateBuilding : MonoBehaviour {
 		GameObject Child = Instantiate(Building[salut], transform.position, transform.rotation);
 		Child.transform.parent = transform;
 	}
-
 }

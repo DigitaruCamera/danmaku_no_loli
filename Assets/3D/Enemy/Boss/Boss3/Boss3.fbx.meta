@@ -14,6 +14,7 @@ ModelImporter:
     3300000: //RootNode
     4300000: Body_new.001
     4300002: Body_boss
+    4300004: Body_boss3
   externalObjects:
   - first:
       type: UnityEngine:Material
