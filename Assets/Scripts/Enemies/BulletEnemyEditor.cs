@@ -24,11 +24,11 @@ public class BulletEnemyEditor : Editor
 
     string[] optionSpawnBullet = new string[]
         {
-            "matrix", "laser", "spiral", "unique", "none"
+            "none", "matrix", "laser", "spiral", "unique"
         };
     string[] optionBullet = new string[]
         {
-            "follow", "forward", "curve", "none",
+            "none", "follow", "forward", "curve",
         };
     public override void OnInspectorGUI()
     {
@@ -53,28 +53,28 @@ public class BulletEnemyEditor : Editor
             GUILayout.Label("durrée du Partern : ");
             enemy.patterns[currentPattern].delaysPartern = EditorGUILayout.FloatField(enemy.patterns[currentPattern].delaysPartern);
             EditorGUILayout.EndHorizontal();
-            switch (enemy.patterns[currentPattern].typeSpawnBullet)
+            switch (optionSpawnBullet[enemy.patterns[currentPattern].typeSpawnBullet])
             {
-                case 0:
+                case "matrix":
                     matrixBullet(enemy.patterns[currentPattern]);
                     break;
-                case 1:
+                case "laser":
                     break;
-                case 2:
+                case "spiral":
                     break;
-                case 3:
+                case "unique":
                     break;
                 default:
                     break;
             }
-            switch (enemy.patterns[currentPattern].typeBullet)
+            switch (optionBullet[enemy.patterns[currentPattern].typeBullet])
             {
-                case 0:
+                case "none":
                     //Debug.Log("follow");
                     break;
-                case 1:
+                case "follow":
                     break;
-                case 2:
+                case "forward":
                     break;
                 default:
                     break;
@@ -88,7 +88,11 @@ public class BulletEnemyEditor : Editor
         int newY;
         int xInc;
         int yInc;
-        currentPattern.bulletSprite = (Sprite)EditorGUILayout.ObjectField("material", currentPattern.bulletSprite, typeof(Sprite), false);
+        currentPattern.bulletSprite = (Sprite)EditorGUILayout.ObjectField("Sprite", currentPattern.bulletSprite, typeof(Sprite), false);
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Color");
+        currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
+        EditorGUILayout.EndHorizontal();
         if (currentPattern.motifMatrix == null)
             currentPattern.motifMatrix = new matrixSpawnBullet();
         EditorGUILayout.BeginHorizontal();
