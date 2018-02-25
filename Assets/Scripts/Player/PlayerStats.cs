@@ -52,7 +52,7 @@ public class PlayerStats : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "enemyBullet")
+        if (other.tag == "enemyBullet" || other.tag == "Enemy")
         {
             ParticleSystem particleSystem = other.GetComponent<ParticleSystem>();
             ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleSystem.particleCount];
@@ -77,7 +77,7 @@ public class PlayerStats : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
             Time.timeScale = 0;
@@ -88,7 +88,7 @@ public class PlayerStats : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "enemyBullet" || other.tag == "enemy")
+        if (other.tag == "enemyBullet" || other.tag == "Enemy")
         {
             Destroy(other.gameObject);
             Time.timeScale = 0;

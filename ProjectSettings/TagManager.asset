@@ -12,6 +12,7 @@ TagManager:
   - bulletSpawn
   - enemyBullet
   - creditUI
+  - Score
   layers:
   - Default
   - TransparentFX

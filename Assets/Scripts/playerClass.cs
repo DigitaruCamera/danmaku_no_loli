@@ -17,10 +17,13 @@ namespace dnl
         {
             return PlayerPrefs.GetInt(sceneName + "Score");
         }
-
+    
+        // use to Get bestScore and LastScore
+        // scenename = "XXXLastScore" give last score do
+        // scenename = "XXXScore" give best score ever do
         public int getSceneScore(string scenename)
         {
-            return PlayerPrefs.GetInt(sceneName + "Score");
+            return PlayerPrefs.GetInt(sceneName);
         }
 
         public string[] getAllScore()
@@ -43,6 +46,11 @@ namespace dnl
             {
                 PlayerPrefs.SetInt(sceneName + "Score", _score);
             }
+        }
+
+        public void setSceneLastScore(int _score)
+        {
+             PlayerPrefs.SetInt(sceneName + "LastScore", _score);
         }
     }
 

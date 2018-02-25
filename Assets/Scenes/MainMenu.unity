@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 550032956}
   - component: {fileID: 550032955}
   m_Layer: 5
-  m_Name: Text_LastScore
+  m_Name: GameplayTestLastScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2902,8 +2902,8 @@ GameObject:
   - component: {fileID: 736149424}
   - component: {fileID: 736149423}
   m_Layer: 5
-  m_Name: Text_BestTime
-  m_TagString: Untagged
+  m_Name: GameplayTestScore
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6946,6 +6946,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1700476981}
+--- !u!1 &1701774877 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1869314910850552, guid: 961aa1556d90c7444ad2be5e5c3f8f09,
+    type: 2}
+  m_PrefabInternal: {fileID: 307610804}
+--- !u!114 &1701774878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701774877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13e89c98e2710042be484a385b1b34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729000702
 GameObject:
   m_ObjectHideFlags: 0
