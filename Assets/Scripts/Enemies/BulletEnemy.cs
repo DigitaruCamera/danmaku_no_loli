@@ -5,7 +5,7 @@ using typeSpawnBullet;
 using patternClass;
 
 public class BulletEnemy : MonoBehaviour {
-    public Pattern[] patterns = new Pattern[1];
+    public Pattern[] patterns;
     void Start () {
 	}
 	void Update () {
