@@ -35,6 +35,7 @@ public class BulletEnemyEditor : Editor
         int nbPattern = -1;
         int currentPattern;
         BulletEnemy enemy = (BulletEnemy)target;
+        if (enemy.patterns == null) enemy.patterns = new Pattern[1];
         if (enemy.patterns[0] == null) enemy.patterns[0] = new Pattern();
         // Recupere le nombre de paterne
         EditorGUILayout.BeginHorizontal();
