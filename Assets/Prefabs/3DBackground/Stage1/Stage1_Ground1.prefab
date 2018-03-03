@@ -54,11 +54,10 @@ GameObject:
   - component: {fileID: 33039518589286618}
   - component: {fileID: 23783372446169050}
   - component: {fileID: 114477436053639064}
-  - component: {fileID: 114267257020974494}
   - component: {fileID: 61546800624436174}
   m_Layer: 0
   m_Name: Stage1_Ground1
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,19 +247,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &114267257020974494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756097137158480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273670d1d579d0241ad65185ac4c037a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollspeed: 2
 --- !u!114 &114452900076930714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +264,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: 933cf8c5031bf844580fa732bfc90750, type: 3}
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
-  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &114459896795787800
 MonoBehaviour:
@@ -298,7 +283,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114477436053639064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,11 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4595d572483e479af029122bc7ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background:
+  Background:
   - {fileID: 1756097137158480}
   - {fileID: 1186512183776380, guid: a1e08bff022817c46930d32b79d63c10, type: 2}
   - {fileID: 1027691193397300, guid: d8c2c4858ce3bd540a95952b6ac155f1, type: 2}
-  - {fileID: 0}
+  Profondeur: 25
+  Lean: 180
 --- !u!114 &114569824755449596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,5 +317,4 @@ MonoBehaviour:
   - {fileID: 100000, guid: 933cf8c5031bf844580fa732bfc90750, type: 3}
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
-  - {fileID: 0}
   - {fileID: 0}

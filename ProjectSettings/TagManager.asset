@@ -13,6 +13,7 @@ TagManager:
   - enemyBullet
   - creditUI
   - Score
+  - Background
   layers:
   - Default
   - TransparentFX

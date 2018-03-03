@@ -69,12 +69,11 @@ GameObject:
   - component: {fileID: 4065570118337732}
   - component: {fileID: 33579415564781674}
   - component: {fileID: 23081225686963992}
-  - component: {fileID: 114396275700988964}
   - component: {fileID: 114893097588850644}
   - component: {fileID: 61826315179310736}
   m_Layer: 0
   m_Name: Stage2_Ground1
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,19 +247,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ed7a8b23c1342724a8cc93b74c344a34, type: 3}
   - {fileID: 100000, guid: b2dc36679a2e6fe4f9210e1049c46e2c, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &114396275700988964
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943050075640738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273670d1d579d0241ad65185ac4c037a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollspeed: 2
 --- !u!114 &114413899801555740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +264,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: 13755fcd42376aa44b9b569c5f7b010e, type: 3}
   - {fileID: 100000, guid: ed7a8b23c1342724a8cc93b74c344a34, type: 3}
   - {fileID: 100000, guid: b2dc36679a2e6fe4f9210e1049c46e2c, type: 3}
-  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &114461978393491800
 MonoBehaviour:
@@ -298,7 +283,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ed7a8b23c1342724a8cc93b74c344a34, type: 3}
   - {fileID: 100000, guid: b2dc36679a2e6fe4f9210e1049c46e2c, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114545512084251616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,7 +301,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ed7a8b23c1342724a8cc93b74c344a34, type: 3}
   - {fileID: 100000, guid: b2dc36679a2e6fe4f9210e1049c46e2c, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114893097588850644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,8 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4595d572483e479af029122bc7ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background:
+  Background:
   - {fileID: 1943050075640738}
   - {fileID: 1619721882534530, guid: 06367a2dec9c38f4fb0ee9fb103f32c1, type: 2}
   - {fileID: 1007901306628024, guid: 0792e6d22fda11e499ff79a02b322e40, type: 2}
-  - {fileID: 0}
+  Profondeur: 25
+  Lean: 180

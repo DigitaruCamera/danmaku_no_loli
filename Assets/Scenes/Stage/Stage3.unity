@@ -639,7 +639,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1831324812
+--- !u!114 &1844069307 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114963432646463844, guid: 961aa1556d90c7444ad2be5e5c3f8f09,
+    type: 2}
+  m_PrefabInternal: {fileID: 526893127}
+  m_Script: {fileID: 11500000, guid: de1a04fa07c8dc34e97e341292623005, type: 3}
+--- !u!114 &1844069308 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114499266086263044, guid: 961aa1556d90c7444ad2be5e5c3f8f09,
+    type: 2}
+  m_PrefabInternal: {fileID: 526893127}
+  m_Script: {fileID: 11500000, guid: 06dd2a10803e1e64c8d88399f58ef7aa, type: 3}
+--- !u!1001 &2092855426
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -681,15 +693,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 893e7dfee00cc064781d2f4a42125872, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1844069307 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114963432646463844, guid: 961aa1556d90c7444ad2be5e5c3f8f09,
-    type: 2}
-  m_PrefabInternal: {fileID: 526893127}
-  m_Script: {fileID: 11500000, guid: de1a04fa07c8dc34e97e341292623005, type: 3}
---- !u!114 &1844069308 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114499266086263044, guid: 961aa1556d90c7444ad2be5e5c3f8f09,
-    type: 2}
-  m_PrefabInternal: {fileID: 526893127}
-  m_Script: {fileID: 11500000, guid: 06dd2a10803e1e64c8d88399f58ef7aa, type: 3}

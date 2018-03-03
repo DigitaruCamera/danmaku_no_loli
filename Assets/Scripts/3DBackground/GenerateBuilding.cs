@@ -6,10 +6,10 @@ public class GenerateBuilding : MonoBehaviour {
 
 	public GameObject[] Building;
 
-	void Start (){
+	void Awake (){
 
-		int salut = Random.Range (0, Building.Length - 1);
-		GameObject Child = Instantiate(Building[salut], transform.position, transform.rotation);
+		int RandomResult = Random.Range (0, Building.Length);
+		GameObject Child = Instantiate(Building[RandomResult], transform.position, transform.rotation);
 		Child.transform.parent = transform;
 	}
 }

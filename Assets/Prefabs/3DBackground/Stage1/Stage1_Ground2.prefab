@@ -38,11 +38,10 @@ GameObject:
   - component: {fileID: 33531054180207174}
   - component: {fileID: 23535946004602056}
   - component: {fileID: 114737250378273084}
-  - component: {fileID: 114512950817366548}
   - component: {fileID: 61642786434652216}
   m_Layer: 0
   m_Name: Stage1_Ground2
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +247,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114134611349930698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,19 +265,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &114512950817366548
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1186512183776380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273670d1d579d0241ad65185ac4c037a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollspeed: 2
 --- !u!114 &114737250378273084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,11 +276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4595d572483e479af029122bc7ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background:
+  Background:
   - {fileID: 1756097137158480, guid: e6e75d701bea16142ac421b9d0e2e5c3, type: 2}
   - {fileID: 1186512183776380}
   - {fileID: 1027691193397300, guid: d8c2c4858ce3bd540a95952b6ac155f1, type: 2}
-  - {fileID: 0}
+  Profondeur: 25
+  Lean: 180
 --- !u!114 &114752049802949866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +300,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114958488935506572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,5 +317,4 @@ MonoBehaviour:
   - {fileID: 100000, guid: 933cf8c5031bf844580fa732bfc90750, type: 3}
   - {fileID: 100000, guid: e46056b507fc6e34a9b60c3081a01d39, type: 3}
   - {fileID: 100000, guid: 9e1595d32d0ba4141a6a71d5192ec293, type: 3}
-  - {fileID: 0}
   - {fileID: 0}

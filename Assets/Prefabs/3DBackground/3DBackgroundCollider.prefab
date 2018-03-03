@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4416911041980216}
   - component: {fileID: 61656770326077256}
   - component: {fileID: 50704534648295220}
+  - component: {fileID: 114703519040520066}
   m_Layer: 0
   m_Name: 3DBackgroundCollider
   m_TagString: BackgroundCollider
@@ -84,5 +85,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 30, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &114703519040520066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1465310299840966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273670d1d579d0241ad65185ac4c037a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollspeed: 2

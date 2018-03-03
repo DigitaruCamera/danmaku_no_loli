@@ -1,57 +1,17 @@
 fileFormatVersion: 2
-guid: 6afc972113b92ae45ad5d476de985e9b
-timeCreated: 1519506353
+guid: 034239aa85a0ee847a1b270a5e754a97
+timeCreated: 1520092744
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ClassroomLP
-    100004: Spawner
-    100006: Spawner.001
-    100008: Spawner.002
-    100010: Spawner.003
-    100012: Stage4_Ground1
-    100014: StairLP
-    100016: Stage4_Inside1
-    100018: Spawner.004
-    100020: Spawner.005
-    100022: Spawner.006
     400000: //RootNode
-    400002: ClassroomLP
-    400004: Spawner
-    400006: Spawner.001
-    400008: Spawner.002
-    400010: Spawner.003
-    400012: Stage4_Ground1
-    400014: StairLP
-    400016: Stage4_Inside1
-    400018: Spawner.004
-    400020: Spawner.005
-    400022: Spawner.006
-    2100000: Stage1_mat
-    2100002: LowPoly
-    2100004: Stage4_mat
+    2100000: Stage4_mat
     2300000: //RootNode
-    2300002: ClassroomLP
-    2300004: Stage4_Ground1
-    2300006: StairLP
-    2300008: Stage4_Inside1
     3300000: //RootNode
-    3300002: ClassroomLP
-    3300004: Stage4_Ground1
-    3300006: StairLP
-    3300008: Stage4_Inside1
-    4300000: Stage4_Ground1
-    4300002: ClassroomLP
-    4300004: StairLP
-    4300006: Stage4_Inside1
+    4300000: Stage4_Windows4
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stage1_mat
-    second: {fileID: 2100000, guid: 32a4c952e4489804d9240bc93251db8a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

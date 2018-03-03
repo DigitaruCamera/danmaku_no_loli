@@ -5,13 +5,13 @@ using UnityEngine;
 public class BackgroundOffset : MonoBehaviour
 {
 	public float scrollspeed = 2f;
+	private GameObject[] AllBackground;
 
 	void Update (){
-
-		transform.Translate (new Vector3(0, -1, 0) * Time.deltaTime * scrollspeed);
-	}
-
-	void OnBecameInvisible() {
-		Destroy(gameObject, 1);
+		
+		AllBackground = GameObject.FindGameObjectsWithTag ("Background");
+		foreach (GameObject B in AllBackground) {
+		B.transform.Translate (new Vector2(0, -1) * Time.deltaTime * scrollspeed);
+		}
 	}
 }
