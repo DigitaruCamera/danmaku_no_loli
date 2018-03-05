@@ -17,6 +17,20 @@ ModelImporter:
     100018: Spawner.004
     100020: Spawner.005
     100022: Spawner.006
+    100024: Spawner.007
+    100026: Spawner.008
+    100028: Spawner.009
+    100030: Spawner.010
+    100032: Spawner.011
+    100034: Spawner.012
+    100036: Spawner.013
+    100038: Spawner.014
+    100040: Spawner.015
+    100042: Spawner.016
+    100044: Spawner.017
+    100046: Spawner.018
+    100048: Spawner.019
+    100050: Spawner.020
     400000: //RootNode
     400002: ClassroomLP
     400004: Spawner
@@ -29,6 +43,20 @@ ModelImporter:
     400018: Spawner.004
     400020: Spawner.005
     400022: Spawner.006
+    400024: Spawner.007
+    400026: Spawner.008
+    400028: Spawner.009
+    400030: Spawner.010
+    400032: Spawner.011
+    400034: Spawner.012
+    400036: Spawner.013
+    400038: Spawner.014
+    400040: Spawner.015
+    400042: Spawner.016
+    400044: Spawner.017
+    400046: Spawner.018
+    400048: Spawner.019
+    400050: Spawner.020
     2100000: Stage1_mat
     2100002: LowPoly
     2100004: Stage4_mat
