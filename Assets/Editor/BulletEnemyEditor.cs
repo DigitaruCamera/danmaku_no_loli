@@ -24,11 +24,11 @@ public class BulletEnemyEditor : Editor
 
     string[] optionSpawnBullet = new string[]
         {
-            "none", "matrix", "laser", "spiral", "unique"
+            "none", "matrix", "laser", "spiral", "solo", "circle", "particle"
         };
     string[] optionBullet = new string[]
         {
-            "none", "follow", "forward", "curve",
+            "none", "follow", "forward", "curve", "looking",
         };
     public override void OnInspectorGUI()
     {
@@ -46,7 +46,7 @@ public class BulletEnemyEditor : Editor
         // Recupere les info pour tout les paterne selon leurs type
         for (currentPattern = 0; currentPattern < enemy.patterns.Length; currentPattern++)
         {
-            EditorGUILayout.LabelField("===========================");
+            EditorGUILayout.LabelField("______________________________________________________________________________");
             enemy.patterns[currentPattern].typeSpawnBullet = EditorGUILayout.Popup("Type spawn bullet", enemy.patterns[currentPattern].typeSpawnBullet, optionSpawnBullet);
             enemy.patterns[currentPattern].typeBullet = EditorGUILayout.Popup("Type bullet", enemy.patterns[currentPattern].typeBullet, optionBullet);
             EditorGUILayout.BeginHorizontal();
@@ -59,10 +59,16 @@ public class BulletEnemyEditor : Editor
                     matrixBullet(enemy.patterns[currentPattern]);
                     break;
                 case "laser":
+                    laserBullet(enemy.patterns[currentPattern]);
                     break;
                 case "spiral":
                     break;
-                case "unique":
+                case "solo":
+                    break;
+                case "circle":
+                    break;
+                case "particle":
+                    particleBullet(enemy.patterns[currentPattern]);
                     break;
                 default:
                     break;
@@ -82,13 +88,76 @@ public class BulletEnemyEditor : Editor
         }
     }
 
+    /*public Material bulletMaterial;
+    //public Color bulletColor;
+    public GameObject particle;
+    public float startSpeed = 2;
+    public float RateOverTime = 2;*/
+    void particleBullet(Pattern currentPattern)
+    {
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Material");
+        currentPattern.bulletMaterial = (Material)EditorGUILayout.ObjectField(currentPattern.bulletMaterial, typeof(Material), false);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Color");
+        currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Prefabs");
+        currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("StartSpeed : ");
+        currentPattern.startSpeed = EditorGUILayout.FloatField(currentPattern.startSpeed);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("rateOverTime : ");
+        currentPattern.rateOverTime = EditorGUILayout.FloatField(currentPattern.rateOverTime);
+        EditorGUILayout.EndHorizontal();
+    }
+
+    void laserBullet(Pattern currentPattern)
+    {
+        if (currentPattern.laserSpriteWarning == null || currentPattern.laserSpriteActif == null)
+        {
+            currentPattern.laserSpriteWarning = new Sprite[3];
+            currentPattern.laserSpriteActif = new Sprite[3];
+        }
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("delayWarning : ");
+        currentPattern.slerpWarning = EditorGUILayout.FloatField(currentPattern.slerpWarning);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("delayActif : ");
+        currentPattern.delayActif = EditorGUILayout.FloatField(currentPattern.delayActif);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("slerpWarning : ");
+        currentPattern.slerpWarning = Mathf.Clamp(EditorGUILayout.FloatField(currentPattern.slerpWarning), 0, 1);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("slerpActif : ");
+        currentPattern.slerpActif = Mathf.Clamp(EditorGUILayout.FloatField(currentPattern.slerpActif), 0, 1);
+        EditorGUILayout.EndHorizontal();
+        currentPattern.laserSpriteWarning[0] = (Sprite)EditorGUILayout.ObjectField("Sprite Debut warning", currentPattern.laserSpriteWarning[0], typeof(Sprite), false);
+        currentPattern.laserSpriteWarning[1] = (Sprite)EditorGUILayout.ObjectField("Sprite Mileu warning", currentPattern.laserSpriteWarning[1], typeof(Sprite), false);
+        currentPattern.laserSpriteWarning[2] = (Sprite)EditorGUILayout.ObjectField("Sprite Fin warning", currentPattern.laserSpriteWarning[2], typeof(Sprite), false);
+        currentPattern.laserSpriteActif[0] = (Sprite)EditorGUILayout.ObjectField("Sprite Debut Actif", currentPattern.laserSpriteActif[0], typeof(Sprite), false);
+        currentPattern.laserSpriteActif[1] = (Sprite)EditorGUILayout.ObjectField("Sprite Mileu Actif", currentPattern.laserSpriteActif[1], typeof(Sprite), false);
+        currentPattern.laserSpriteActif[2] = (Sprite)EditorGUILayout.ObjectField("Sprite Fin Actif", currentPattern.laserSpriteActif[2], typeof(Sprite), false);
+    }
+
     void matrixBullet(Pattern currentPattern)
     {
         int newX;
         int newY;
         int xInc;
         int yInc;
-        currentPattern.bulletSprite = (Sprite)EditorGUILayout.ObjectField("Sprite", currentPattern.bulletSprite, typeof(Sprite), false);
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Prefab");
+        currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
+        EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Color");
         currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);

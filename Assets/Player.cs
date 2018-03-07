@@ -91,7 +91,9 @@ public class Player : MonoBehaviour
 
     public void saveScore(int currentScore)
     {
+        Debug.Log("score saved :" + currentScore);
         new Score().setSceneScore(currentScore);
+        new Score().setSceneLastScore(currentScore);
     }
 
     public void affTimer()

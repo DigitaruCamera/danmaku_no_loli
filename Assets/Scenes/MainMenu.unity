@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 550032955}
   m_Layer: 5
   m_Name: GameplayTestLastScore
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
