@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/DontDestroyOnLoad.unity
+    guid: e3275e86d8f5586409146b0e72e0a4a7
+  - enabled: 1
     path: Assets/Scenes/Welcome.unity
     guid: aa7c03f69a69b7c49800167cd1e7b8bc
   - enabled: 1
