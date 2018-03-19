@@ -33,7 +33,3 @@ sysinfo.txt
 *.apk
 *.unitypackage
 ProjectSettings/ProjectVersion.txt
-Assets/Scenes/GameplayTest.unity
-Assets/Scenes/GameplayTest.unity
-Assets/Scenes/MainMenu.unity
-*.unity

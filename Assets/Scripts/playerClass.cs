@@ -23,7 +23,6 @@ namespace dnl
         // scenename = "XXXScore" give best score ever do
         public int getSceneScore(string scenename)
         {
-            Debug.Log(scenename);
             return PlayerPrefs.GetInt(sceneName);
         }
 
@@ -43,7 +42,6 @@ namespace dnl
 
         public void setSceneScore(int _score)
         {
-            Debug.Log(sceneName + "Score");
             if (PlayerPrefs.GetInt(sceneName + "Score") < _score)
             {
                 PlayerPrefs.SetInt(sceneName + "Score", _score);
@@ -52,8 +50,7 @@ namespace dnl
 
         public void setSceneLastScore(int _score)
         {
-            Debug.Log(sceneName + "LastScore");
-            PlayerPrefs.SetInt(sceneName + "LastScore", _score);
+             PlayerPrefs.SetInt(sceneName + "LastScore", _score);
         }
     }
 
