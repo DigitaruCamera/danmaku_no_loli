@@ -162,7 +162,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DigitaruCamera.DanmakuNoLoli
   buildNumber: {}
-  AndroidBundleVersionCode: 4
+  AndroidBundleVersionCode: 5
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -247,7 +247,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/GitHub/danmaku_no_loli/user.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: dnlkeys
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
