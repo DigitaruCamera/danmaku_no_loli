@@ -51,6 +51,7 @@ public class BulletEnemyEditor : Editor
                     break;
                 case "spiral":
                     bulletPrefabs(enemy.patterns[currentPattern]);
+                    spiralBullet(enemy.patterns[currentPattern]);
                     break;
                 case "solo":
                     bulletPrefabs(enemy.patterns[currentPattern]);
@@ -79,6 +80,18 @@ public class BulletEnemyEditor : Editor
         }
     }
     
+    void spiralBullet(Pattern currentPattern)
+    {
+        /*
+         rotSpeed
+         sens
+         rotaion speed
+         horaire / anti horaire
+         nb_bullet same time
+         delaySpawn
+        */
+    }
+
     void bulletPrefabs(Pattern currentPattern)
     {
         int nbBulletVisual;
@@ -112,10 +125,6 @@ public class BulletEnemyEditor : Editor
         GUILayout.Label("Material");
         currentPattern.bulletMaterial = (Material)EditorGUILayout.ObjectField(currentPattern.bulletMaterial, typeof(Material), false);
         EditorGUILayout.EndHorizontal();
-        /*EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Color");
-        currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
-        EditorGUILayout.EndHorizontal();*/
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Prefabs");
         currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
