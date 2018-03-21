@@ -157,10 +157,12 @@ public class BulletEnemyEditor : Editor
         int newY;
         int xInc;
         int yInc;
-        if (currentPattern.motifMatrix == null)
+        if (currentPattern.test == null)
         {
             Debug.Log("reset Matrix");
-            currentPattern.motifMatrix = new MatrixOfBool(5, 5);
+            currentPattern.width = 5;
+            currentPattern.height = 5;
+            currentPattern.test = new bool[5 * 5];
         }
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Prefab");
@@ -176,23 +178,25 @@ public class BulletEnemyEditor : Editor
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("X : ");
-        newX = EditorGUILayout.IntField(currentPattern.motifMatrix.width);
+        newX = EditorGUILayout.IntField(currentPattern.width);
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Y : ");
-        newY = EditorGUILayout.IntField(currentPattern.motifMatrix.height);
+        newY = EditorGUILayout.IntField(currentPattern.height);
         EditorGUILayout.EndHorizontal();
-        if (currentPattern.motifMatrix.width != newX || currentPattern.motifMatrix.height != newY || currentPattern.motifMatrix == null)
+        if (currentPattern.width != newX || currentPattern.height != newY || currentPattern.test == null)
         {
             Debug.Log("reset Matrix size");
-            currentPattern.motifMatrix = new MatrixOfBool(newX, newY);
+            currentPattern.width = newX;
+            currentPattern.height = newY;
+            currentPattern.test = new bool[newX * newY];
         }
-        for (xInc = 0; xInc < currentPattern.motifMatrix.width; xInc++)
+        for (xInc = 0; xInc < currentPattern.width; xInc++)
         {
             EditorGUILayout.BeginHorizontal();
-            for (yInc = 0; yInc < currentPattern.motifMatrix.height; yInc++)
+            for (yInc = 0; yInc < currentPattern.height; yInc++)
             {
-                currentPattern.motifMatrix.set(xInc, yInc, EditorGUILayout.Toggle("", currentPattern.motifMatrix.get(xInc, yInc), GUILayout.Width(10)));
+                currentPattern.test[xInc + currentPattern.width * yInc] = EditorGUILayout.Toggle("", currentPattern.test[xInc + currentPattern.width * yInc], GUILayout.Width(10));
             }
             EditorGUILayout.EndHorizontal();
         }

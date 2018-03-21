@@ -14,7 +14,10 @@ namespace patternClass
         public float delaysPattern = 0;
 
         // champ spetials matrix
-        public Matrix<bool> motifMatrix;
+//        public MatrixOfBool motifMatrix;
+        public bool[] test;
+        public int width;
+        public int height;
         public Sprite bulletSprite;
         public Color bulletColor;
 
