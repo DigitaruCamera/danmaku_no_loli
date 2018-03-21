@@ -160,7 +160,7 @@ public class BulletEnemyEditor : Editor
         if (currentPattern.motifMatrix == null)
         {
             Debug.Log("reset Matrix");
-            currentPattern.motifMatrix = new Matrix<bool>(5, 5);
+            currentPattern.motifMatrix = new MatrixOfBool(5, 5);
         }
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Prefab");
@@ -185,7 +185,7 @@ public class BulletEnemyEditor : Editor
         if (currentPattern.motifMatrix.width != newX || currentPattern.motifMatrix.height != newY || currentPattern.motifMatrix == null)
         {
             Debug.Log("reset Matrix size");
-            currentPattern.motifMatrix = new Matrix<bool>(newX, newY);
+            currentPattern.motifMatrix = new MatrixOfBool(newX, newY);
         }
         for (xInc = 0; xInc < currentPattern.motifMatrix.width; xInc++)
         {
