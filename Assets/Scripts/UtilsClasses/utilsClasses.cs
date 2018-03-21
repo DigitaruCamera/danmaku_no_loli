@@ -26,4 +26,7 @@ namespace utils
          elements[x + y * width] = value;
      }
   }
+ public class MatrixOfBool : Matrix<bool>
+ {
+ }
 }
