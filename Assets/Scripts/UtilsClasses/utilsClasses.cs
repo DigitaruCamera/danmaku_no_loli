@@ -1,6 +1,9 @@
+using System;
+
 namespace utils
 {
-  class Matrix<T>
+    [Serializable]
+    public class Matrix<T>
   {
      private T[] elements;
      public int width { get; }

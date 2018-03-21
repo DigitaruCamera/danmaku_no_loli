@@ -1,10 +1,12 @@
-﻿using UnityEditor;
+﻿using utils;
+using UnityEditor;
 using UnityEngine;
 using typeSpawnBullet;
 using patternClass;
 using System.Collections.Generic;
 
 [CustomEditor(typeof(BulletEnemy))]
+[CanEditMultipleObjects]
 public class BulletEnemyEditor : Editor
 {
     List<T> Resize<T>(List<T> list, int sz) where T : new()
@@ -52,7 +54,7 @@ public class BulletEnemyEditor : Editor
             enemy.patterns[currentPattern].typeBullet = EditorGUILayout.Popup("Type bullet", enemy.patterns[currentPattern].typeBullet, optionBullet);
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("durrée du Partern : ");
-            enemy.patterns[currentPattern].delaysPartern = EditorGUILayout.FloatField(enemy.patterns[currentPattern].delaysPartern);
+            enemy.patterns[currentPattern].delaysPatternTotal = EditorGUILayout.FloatField(enemy.patterns[currentPattern].delaysPatternTotal);
             EditorGUILayout.EndHorizontal();
             switch (optionSpawnBullet[enemy.patterns[currentPattern].typeSpawnBullet])
             {
@@ -155,7 +157,11 @@ public class BulletEnemyEditor : Editor
         int newY;
         int xInc;
         int yInc;
-        int i;
+        if (currentPattern.motifMatrix == null)
+        {
+            Debug.Log("reset Matrix");
+            currentPattern.motifMatrix = new Matrix<bool>(5, 5);
+        }
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Prefab");
         currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
@@ -164,37 +170,29 @@ public class BulletEnemyEditor : Editor
         GUILayout.Label("Color");
         currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
         EditorGUILayout.EndHorizontal();
-        if (currentPattern.motifMatrix == null)
-            currentPattern.motifMatrix = new matrixSpawnBullet();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Delay tir : ");
-        currentPattern.motifMatrix.delayTir = EditorGUILayout.FloatField(currentPattern.motifMatrix.delayTir);
+        currentPattern.delaysPattern = EditorGUILayout.FloatField(currentPattern.delaysPattern);
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("X : ");
-        newX = EditorGUILayout.IntField(currentPattern.motifMatrix.x);
+        newX = EditorGUILayout.IntField(currentPattern.motifMatrix.width);
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Y : ");
-        newY = EditorGUILayout.IntField(currentPattern.motifMatrix.y);
+        newY = EditorGUILayout.IntField(currentPattern.motifMatrix.height);
         EditorGUILayout.EndHorizontal();
-        if (currentPattern.motifMatrix.x != newX || currentPattern.motifMatrix.y != newY || currentPattern.motifMatrix.matrix == null)
+        if (currentPattern.motifMatrix.width != newX || currentPattern.motifMatrix.height != newY || currentPattern.motifMatrix == null)
         {
-            currentPattern.motifMatrix.x = newX;
-            currentPattern.motifMatrix.y = newY;
-            currentPattern.motifMatrix.matrix = new bool[newX][];
-            for (i = 0; i < newX; i++)
-            {
-                currentPattern.motifMatrix.matrix[i] = new bool[newY];
-            }
+            Debug.Log("reset Matrix size");
+            currentPattern.motifMatrix = new Matrix<bool>(newX, newY);
         }
-        for (xInc = 0; xInc < currentPattern.motifMatrix.x; xInc++)
+        for (xInc = 0; xInc < currentPattern.motifMatrix.width; xInc++)
         {
             EditorGUILayout.BeginHorizontal();
-            for (yInc = 0; yInc < currentPattern.motifMatrix.y; yInc++)
+            for (yInc = 0; yInc < currentPattern.motifMatrix.height; yInc++)
             {
-
-                currentPattern.motifMatrix.matrix[xInc][yInc] = EditorGUILayout.Toggle("", currentPattern.motifMatrix.matrix[xInc][yInc], GUILayout.Width(10));
+                currentPattern.motifMatrix.set(xInc, yInc, EditorGUILayout.Toggle("", currentPattern.motifMatrix.get(xInc, yInc), GUILayout.Width(10)));
             }
             EditorGUILayout.EndHorizontal();
         }

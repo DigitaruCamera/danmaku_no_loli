@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using typeSpawnBullet;
+﻿using UnityEngine;
 using patternClass;
+using utils;
 
 public class BulletEnemy : MonoBehaviour {
     public GameObject PrefabsBullet;
@@ -29,19 +27,11 @@ public class BulletEnemy : MonoBehaviour {
                 currentPattern++;
                 if (currentPattern >= patterns.Length)
                     currentPattern = 0;
-                delayedPattern = Time.time + patterns[currentPattern].delaysPartern;
+                delayedPattern = Time.time + patterns[currentPattern].delaysPatternTotal;
             }
             switch (optionSpawnBullet[patterns[currentPattern].typeSpawnBullet])
             {
                 case "matrix":
-                    if (Time.time >= delayedPattern)
-                    {
-                        currentPattern++;
-                        if (currentPattern >= patterns.Length)
-                            currentPattern = 0;
-                        delayedPattern = Time.time + patterns[currentPattern].delaysPartern;
-                    }
-                    matrixBullet(patterns[currentPattern]);
                     break;
                 case "laser":
                     //laserBullet(patterns[currentPattern]);
@@ -61,31 +51,6 @@ public class BulletEnemy : MonoBehaviour {
         } else
         {
             Debug.LogError("un enemy n'a pas de patern");
-        }
-    }
-
-    float delayedShoot = 0;
-    void matrixBullet(Pattern currentPattern)
-    {
-        print("coucou");
-        if (Time.time >= delayedShoot)
-        {
-            delayedShoot = Time.time + currentPattern.motifMatrix.delayTir;
-            int x;
-            int y;
-            for (x = 0; x < currentPattern.motifMatrix.x; x++)
-            {
-                for (y = 0; y < currentPattern.motifMatrix.y; y++)
-                {
-                    if (currentPattern.motifMatrix.matrix[x][y] != false)
-                    {
-                        GameObject clone = Instantiate(currentPattern.Prefabs, transform.position + new Vector3(x, y, 0), transform.rotation) as GameObject;
-                        clone.name = currentPattern.Prefabs.name;
-                        clone.GetComponent<SpriteRenderer>().color = currentPattern.bulletColor;
-                    }
-                }
-
-            }
         }
     }
 }

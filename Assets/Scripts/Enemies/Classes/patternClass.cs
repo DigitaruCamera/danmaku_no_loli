@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using typeSpawnBullet;
 using System;
+using utils;
 
 namespace patternClass
 {
@@ -9,10 +10,11 @@ namespace patternClass
     {
         public int typeSpawnBullet = 0;
         public int typeBullet = 0;
-        public float delaysPartern = 0;
+        public float delaysPatternTotal = 0;
+        public float delaysPattern = 0;
 
         // champ spetials matrix
-        public matrixSpawnBullet motifMatrix;
+        public Matrix<bool> motifMatrix;
         public Sprite bulletSprite;
         public Color bulletColor;
 

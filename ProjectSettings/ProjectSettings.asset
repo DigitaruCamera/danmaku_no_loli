@@ -11,7 +11,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: DigitaruCamera
   productName: Danmaku_No_Loli_2018
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -207,7 +207,6 @@ PlayerSettings:
   tvOSSmallIconLayers: []
   tvOSSmallIconLayers2x: []
   tvOSLargeIconLayers: []
-  tvOSLargeIconLayers2x: []
   tvOSTopShelfImageLayers: []
   tvOSTopShelfImageLayers2x: []
   tvOSTopShelfImageWideLayers: []
@@ -246,7 +245,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/GitHub/danmaku_no_loli/user.keystore
+  AndroidKeystoreName: C:/Users/isidoris2/Documents/GitHub/danmaku_no_loli/user.keystore
   AndroidKeyaliasName: dnlkeys
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

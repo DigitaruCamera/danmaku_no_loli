@@ -8,6 +8,13 @@ public class Ads : MonoBehaviour {
     public int Credit_max = 10;
     public int Credit_gain = 1;
     public int Credit_gain_delay = 3600;
+#if UNITY_IOS
+    private string gameId = "1638501";
+#elif UNITY_ANDROID
+    private string gameId = "1638500";
+#else
+    private string gameId = "";
+#endif
 
     private void Update()
     {
@@ -23,7 +30,7 @@ public class Ads : MonoBehaviour {
 
     private void Start()
     {
-
+        Advertisement.Initialize(gameId);
         if (PlayerPrefs.GetInt("FirstCo") == 0)
         {
             PlayerPrefs.SetInt("FirstCo", 1);
