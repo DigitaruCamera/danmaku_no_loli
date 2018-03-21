@@ -1,7 +1,6 @@
 ﻿using utils;
 using UnityEditor;
 using UnityEngine;
-using typeSpawnBullet;
 using patternClass;
 using System.Collections.Generic;
 
@@ -9,28 +8,13 @@ using System.Collections.Generic;
 [CanEditMultipleObjects]
 public class BulletEnemyEditor : Editor
 {
-    List<T> Resize<T>(List<T> list, int sz) where T : new()
-    {
-        if (list.Count < sz)
-        {
-            while (list.Count < sz)
-            {
-                list.Add(new T());
-            }
-        } else if ((list.Count > sz))
-        {
-            list.RemoveRange(sz, list.Count);
-        }
-        return list;
-    }
-
     string[] optionSpawnBullet = new string[]
         {
             "none", "matrix", "laser", "spiral", "solo", "circle", "particle"
         };
     string[] optionBullet = new string[]
         {
-            "none", "follow", "forward", "curve", "looking",
+            "none", "follow", "forward", "curve", "looking"
         };
     public override void OnInspectorGUI()
     {
@@ -45,7 +29,7 @@ public class BulletEnemyEditor : Editor
         nbPattern = EditorGUILayout.IntField(enemy.patterns.Length);
         EditorGUILayout.EndHorizontal();
         if (nbPattern != 0 && nbPattern != -1)
-            enemy.patterns = Resize<Pattern>(new List<Pattern>(enemy.patterns), nbPattern).ToArray();
+            enemy.patterns = new UtilsList().Resize<Pattern>(enemy.patterns, nbPattern).ToArray();
         // Recupere les info pour tout les paterne selon leurs type
         for (currentPattern = 0; currentPattern < enemy.patterns.Length; currentPattern++)
         {
@@ -59,16 +43,20 @@ public class BulletEnemyEditor : Editor
             switch (optionSpawnBullet[enemy.patterns[currentPattern].typeSpawnBullet])
             {
                 case "matrix":
+                    bulletPrefabs(enemy.patterns[currentPattern]);
                     matrixBullet(enemy.patterns[currentPattern]);
                     break;
                 case "laser":
                     laserBullet(enemy.patterns[currentPattern]);
                     break;
                 case "spiral":
+                    bulletPrefabs(enemy.patterns[currentPattern]);
                     break;
                 case "solo":
+                    bulletPrefabs(enemy.patterns[currentPattern]);
                     break;
                 case "circle":
+                    bulletPrefabs(enemy.patterns[currentPattern]);
                     break;
                 case "particle":
                     particleBullet(enemy.patterns[currentPattern]);
@@ -90,22 +78,44 @@ public class BulletEnemyEditor : Editor
             }
         }
     }
+    
+    void bulletPrefabs(Pattern currentPattern)
+    {
+        int nbBulletVisual;
+        EditorGUILayout.LabelField("/=====================\\");
+        EditorGUILayout.LabelField("==== Visuel Bullet Random ====");
+        if (currentPattern.bulletVisual == null) currentPattern.bulletVisual = new BulletVisual[1];
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("nb : ");
+        nbBulletVisual = EditorGUILayout.IntField(currentPattern.bulletVisual.Length);
+        EditorGUILayout.EndHorizontal();
+        if (nbBulletVisual != currentPattern.bulletVisual.Length)
+        {
+            currentPattern.bulletVisual = new UtilsList().Resize<BulletVisual>(currentPattern.bulletVisual, nbBulletVisual).ToArray();
+        }
+        for (int i = 0; i < currentPattern.bulletVisual.Length; i++)
+        {
+            if (i != 0) EditorGUILayout.LabelField("~~~~~~~~~~~~~~~~");
+            currentPattern.bulletVisual[i].Prefab = (GameObject)EditorGUILayout.ObjectField("Prefab", currentPattern.bulletVisual[i].Prefab, typeof(GameObject), false);
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Color");
+            currentPattern.bulletVisual[i].color = EditorGUILayout.ColorField(currentPattern.bulletVisual[i].color);
+            EditorGUILayout.EndHorizontal();
+            currentPattern.bulletVisual[i].sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", currentPattern.bulletVisual[i].sprite, typeof(Sprite), false);
+        }
+        EditorGUILayout.LabelField("\\=====================/");
+    }
 
-    /*public Material bulletMaterial;
-    //public Color bulletColor;
-    public GameObject particle;
-    public float startSpeed = 2;
-    public float RateOverTime = 2;*/
     void particleBullet(Pattern currentPattern)
     {
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Material");
         currentPattern.bulletMaterial = (Material)EditorGUILayout.ObjectField(currentPattern.bulletMaterial, typeof(Material), false);
         EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
+        /*EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Color");
         currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
-        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndHorizontal();*/
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Prefabs");
         currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
@@ -150,7 +160,6 @@ public class BulletEnemyEditor : Editor
         currentPattern.laserSpriteActif[1] = (Sprite)EditorGUILayout.ObjectField("Sprite Mileu Actif", currentPattern.laserSpriteActif[1], typeof(Sprite), false);
         currentPattern.laserSpriteActif[2] = (Sprite)EditorGUILayout.ObjectField("Sprite Fin Actif", currentPattern.laserSpriteActif[2], typeof(Sprite), false);
     }
-
     void matrixBullet(Pattern currentPattern)
     {
         int newX;
@@ -164,14 +173,6 @@ public class BulletEnemyEditor : Editor
             currentPattern.height = 5;
             currentPattern.test = new bool[5 * 5];
         }
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Prefab");
-        currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Color");
-        currentPattern.bulletColor = EditorGUILayout.ColorField(currentPattern.bulletColor);
-        EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Delay tir : ");
         currentPattern.delaysPattern = EditorGUILayout.FloatField(currentPattern.delaysPattern);

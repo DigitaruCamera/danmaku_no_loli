@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
-using typeSpawnBullet;
 using System;
-using utils;
 
 namespace patternClass
 {
+    [Serializable]
+    public class BulletVisual
+    {
+        public GameObject Prefab;
+        public Sprite sprite;
+        public Color color;
+    }
+
     [Serializable]
     public class Pattern
     {
@@ -13,13 +19,12 @@ namespace patternClass
         public float delaysPatternTotal = 0;
         public float delaysPattern = 0;
 
+        public BulletVisual[] bulletVisual;
         // champ spetials matrix
-//        public MatrixOfBool motifMatrix;
+        //        public MatrixOfBool motifMatrix;
         public bool[] test;
         public int width;
         public int height;
-        public Sprite bulletSprite;
-        public Color bulletColor;
 
         // champ sptials laser
         public float delayWarning = 0;
