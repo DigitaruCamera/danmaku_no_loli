@@ -36,9 +36,13 @@ namespace patternClass
 
         //champ spetials particle;
         public Material bulletMaterial;
-        //public Color bulletColor;
         public GameObject Prefabs;
         public float startSpeed = 2;
         public float rateOverTime = 2;
+
+        //champ sptials Spiral 
+        public float rotSpeed;
+        public bool sens;
+        public int nbSpawnPoint;
     }
 }

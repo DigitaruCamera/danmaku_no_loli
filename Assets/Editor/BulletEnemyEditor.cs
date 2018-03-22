@@ -23,23 +23,15 @@ public class BulletEnemyEditor : Editor
         BulletEnemy enemy = (BulletEnemy)target;
         if (enemy.patterns == null) enemy.patterns = new Pattern[1];
         if (enemy.patterns[0] == null) enemy.patterns[0] = new Pattern();
-        // Recupere le nombre de paterne
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Nombre de Partern : ");
-        nbPattern = EditorGUILayout.IntField(enemy.patterns.Length);
-        EditorGUILayout.EndHorizontal();
+        nbPattern = EditorGUILayout.IntField("Nombre de Partern : ", enemy.patterns.Length);
         if (nbPattern != 0 && nbPattern != -1)
             enemy.patterns = new UtilsList().Resize<Pattern>(enemy.patterns, nbPattern).ToArray();
-        // Recupere les info pour tout les paterne selon leurs type
         for (currentPattern = 0; currentPattern < enemy.patterns.Length; currentPattern++)
         {
             EditorGUILayout.LabelField("______________________________________________________________________________");
             enemy.patterns[currentPattern].typeSpawnBullet = EditorGUILayout.Popup("Type spawn bullet", enemy.patterns[currentPattern].typeSpawnBullet, optionSpawnBullet);
             enemy.patterns[currentPattern].typeBullet = EditorGUILayout.Popup("Type bullet", enemy.patterns[currentPattern].typeBullet, optionBullet);
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label("durrée du Partern : ");
-            enemy.patterns[currentPattern].delaysPatternTotal = EditorGUILayout.FloatField(enemy.patterns[currentPattern].delaysPatternTotal);
-            EditorGUILayout.EndHorizontal();
+            enemy.patterns[currentPattern].delaysPatternTotal = EditorGUILayout.FloatField("durrée du Partern : ", enemy.patterns[currentPattern].delaysPatternTotal);
             switch (optionSpawnBullet[enemy.patterns[currentPattern].typeSpawnBullet])
             {
                 case "matrix":
@@ -82,14 +74,9 @@ public class BulletEnemyEditor : Editor
     
     void spiralBullet(Pattern currentPattern)
     {
-        /*
-         rotSpeed
-         sens
-         rotaion speed
-         horaire / anti horaire
-         nb_bullet same time
-         delaySpawn
-        */
+        currentPattern.rotSpeed = EditorGUILayout.FloatField("Speed rotation", currentPattern.rotSpeed);
+        currentPattern.sens = EditorGUILayout.Toggle("sens horaire", currentPattern.sens);
+        currentPattern.nbSpawnPoint = EditorGUILayout.IntField("nombre spawn point", currentPattern.nbSpawnPoint);
     }
 
     void bulletPrefabs(Pattern currentPattern)
@@ -98,10 +85,7 @@ public class BulletEnemyEditor : Editor
         EditorGUILayout.LabelField("/=====================\\");
         EditorGUILayout.LabelField("==== Visuel Bullet Random ====");
         if (currentPattern.bulletVisual == null) currentPattern.bulletVisual = new BulletVisual[1];
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("nb : ");
-        nbBulletVisual = EditorGUILayout.IntField(currentPattern.bulletVisual.Length);
-        EditorGUILayout.EndHorizontal();
+        nbBulletVisual = EditorGUILayout.IntField("nb : ", currentPattern.bulletVisual.Length);
         if (nbBulletVisual != currentPattern.bulletVisual.Length)
         {
             currentPattern.bulletVisual = new UtilsList().Resize<BulletVisual>(currentPattern.bulletVisual, nbBulletVisual).ToArray();
@@ -110,10 +94,7 @@ public class BulletEnemyEditor : Editor
         {
             if (i != 0) EditorGUILayout.LabelField("~~~~~~~~~~~~~~~~");
             currentPattern.bulletVisual[i].Prefab = (GameObject)EditorGUILayout.ObjectField("Prefab", currentPattern.bulletVisual[i].Prefab, typeof(GameObject), false);
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label("Color");
-            currentPattern.bulletVisual[i].color = EditorGUILayout.ColorField(currentPattern.bulletVisual[i].color);
-            EditorGUILayout.EndHorizontal();
+            currentPattern.bulletVisual[i].color = EditorGUILayout.ColorField("Color", currentPattern.bulletVisual[i].color);
             currentPattern.bulletVisual[i].sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", currentPattern.bulletVisual[i].sprite, typeof(Sprite), false);
         }
         EditorGUILayout.LabelField("\\=====================/");
@@ -121,22 +102,10 @@ public class BulletEnemyEditor : Editor
 
     void particleBullet(Pattern currentPattern)
     {
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Material");
-        currentPattern.bulletMaterial = (Material)EditorGUILayout.ObjectField(currentPattern.bulletMaterial, typeof(Material), false);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Prefabs");
-        currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField(currentPattern.Prefabs, typeof(GameObject), false);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("StartSpeed : ");
-        currentPattern.startSpeed = EditorGUILayout.FloatField(currentPattern.startSpeed);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("rateOverTime : ");
-        currentPattern.rateOverTime = EditorGUILayout.FloatField(currentPattern.rateOverTime);
-        EditorGUILayout.EndHorizontal();
+        currentPattern.bulletMaterial = (Material)EditorGUILayout.ObjectField("Material", currentPattern.bulletMaterial, typeof(Material), false);
+        currentPattern.Prefabs = (GameObject)EditorGUILayout.ObjectField("Prefabs", currentPattern.Prefabs, typeof(GameObject), false);
+        currentPattern.startSpeed = EditorGUILayout.FloatField("StartSpeed : ", currentPattern.startSpeed);
+        currentPattern.rateOverTime = EditorGUILayout.FloatField("rateOverTime : ", currentPattern.rateOverTime);
     }
 
     void laserBullet(Pattern currentPattern)
@@ -146,22 +115,10 @@ public class BulletEnemyEditor : Editor
             currentPattern.laserSpriteWarning = new Sprite[3];
             currentPattern.laserSpriteActif = new Sprite[3];
         }
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("delayWarning : ");
-        currentPattern.slerpWarning = EditorGUILayout.FloatField(currentPattern.slerpWarning);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("delayActif : ");
-        currentPattern.delayActif = EditorGUILayout.FloatField(currentPattern.delayActif);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("slerpWarning : ");
-        currentPattern.slerpWarning = Mathf.Clamp(EditorGUILayout.FloatField(currentPattern.slerpWarning), 0, 1);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("slerpActif : ");
-        currentPattern.slerpActif = Mathf.Clamp(EditorGUILayout.FloatField(currentPattern.slerpActif), 0, 1);
-        EditorGUILayout.EndHorizontal();
+        currentPattern.slerpWarning = EditorGUILayout.FloatField("delayWarning : ", currentPattern.slerpWarning);
+        currentPattern.delayActif = EditorGUILayout.FloatField("delayActif : ", currentPattern.delayActif);
+        currentPattern.slerpWarning = Mathf.Clamp(EditorGUILayout.FloatField("slerpWarning : ", currentPattern.slerpWarning), 0, 1);
+        currentPattern.slerpActif = Mathf.Clamp(EditorGUILayout.FloatField("slerpActif : ", currentPattern.slerpActif), 0, 1);
         currentPattern.laserSpriteWarning[0] = (Sprite)EditorGUILayout.ObjectField("Sprite Debut warning", currentPattern.laserSpriteWarning[0], typeof(Sprite), false);
         currentPattern.laserSpriteWarning[1] = (Sprite)EditorGUILayout.ObjectField("Sprite Mileu warning", currentPattern.laserSpriteWarning[1], typeof(Sprite), false);
         currentPattern.laserSpriteWarning[2] = (Sprite)EditorGUILayout.ObjectField("Sprite Fin warning", currentPattern.laserSpriteWarning[2], typeof(Sprite), false);
@@ -182,18 +139,9 @@ public class BulletEnemyEditor : Editor
             currentPattern.height = 5;
             currentPattern.test = new bool[5 * 5];
         }
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Delay tir : ");
-        currentPattern.delaysPattern = EditorGUILayout.FloatField(currentPattern.delaysPattern);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("X : ");
-        newX = EditorGUILayout.IntField(currentPattern.width);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Y : ");
-        newY = EditorGUILayout.IntField(currentPattern.height);
-        EditorGUILayout.EndHorizontal();
+        currentPattern.delaysPattern = EditorGUILayout.FloatField("Delay tir : ", currentPattern.delaysPattern);
+        newX = EditorGUILayout.IntField("X : ", currentPattern.width);
+        newY = EditorGUILayout.IntField("Y : ", currentPattern.height);
         if (currentPattern.width != newX || currentPattern.height != newY || currentPattern.test == null)
         {
             Debug.Log("reset Matrix size");
