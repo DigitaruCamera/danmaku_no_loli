@@ -29,6 +29,7 @@ public class BulletEnemy : MonoBehaviour {
                     currentPattern = 0;
                 delayedPattern = Time.time + patterns[currentPattern].delaysPatternTotal;
             }
+            
             switch (optionSpawnBullet[patterns[currentPattern].typeSpawnBullet])
             {
                 case "matrix":

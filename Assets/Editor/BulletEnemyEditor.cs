@@ -2,7 +2,6 @@
 using UnityEditor;
 using UnityEngine;
 using patternClass;
-using System.Collections.Generic;
 
 [CustomEditor(typeof(BulletEnemy))]
 [CanEditMultipleObjects]
@@ -50,6 +49,7 @@ public class BulletEnemyEditor : Editor
                     break;
                 case "circle":
                     bulletPrefabs(enemy.patterns[currentPattern]);
+                    circleBullet(enemy.patterns[currentPattern]);
                     break;
                 case "particle":
                     particleBullet(enemy.patterns[currentPattern]);
@@ -60,22 +60,58 @@ public class BulletEnemyEditor : Editor
             switch (optionBullet[enemy.patterns[currentPattern].typeBullet])
             {
                 case "none":
-                    //Debug.Log("follow");
                     break;
                 case "follow":
+                    followBullet(enemy.patterns[currentPattern]);
                     break;
                 case "forward":
+                    forwardBullet(enemy.patterns[currentPattern]);
+                    break;
+                case "curve":
+                    curveBullet(enemy.patterns[currentPattern]);
+                    break;
+                case "looking":
+                    lookingBullet(enemy.patterns[currentPattern]);
                     break;
                 default:
                     break;
             }
         }
     }
-    
+
+    void followBullet(Pattern currentPattern)
+    {
+        currentPattern.bulletSpeed = EditorGUILayout.FloatField("Speed bullet", currentPattern.bulletSpeed);
+        currentPattern.bulletSlerp = Mathf.Clamp(EditorGUILayout.FloatField("Speed bullet", currentPattern.bulletSlerp), 0, 1);
+    }
+
+    void forwardBullet(Pattern currentPattern)
+    {
+        currentPattern.bulletSpeed = EditorGUILayout.FloatField("Speed bullet", currentPattern.bulletSpeed);
+    }
+
+    void curveBullet(Pattern currentPattern)
+    {
+        currentPattern.bulletSpeed = EditorGUILayout.FloatField("Speed bullet", currentPattern.bulletSpeed);
+        currentPattern.curveX = EditorGUILayout.CurveField("Curve X", currentPattern.curveX);
+        currentPattern.curveY = EditorGUILayout.CurveField("Curve Y", currentPattern.curveY);
+        currentPattern.curveScale = EditorGUILayout.CurveField("Curve Scale", currentPattern.curveScale);
+    }
+
+    void lookingBullet(Pattern currentPattern)
+    {
+        currentPattern.bulletSpeed = EditorGUILayout.FloatField("Speed bullet", currentPattern.bulletSpeed);
+    }
+
     void spiralBullet(Pattern currentPattern)
     {
         currentPattern.rotSpeed = EditorGUILayout.FloatField("Speed rotation", currentPattern.rotSpeed);
         currentPattern.sens = EditorGUILayout.Toggle("sens horaire", currentPattern.sens);
+        currentPattern.nbSpawnPoint = EditorGUILayout.IntField("nombre spawn point", currentPattern.nbSpawnPoint);
+    }
+
+    void circleBullet(Pattern currentPattern)
+    {
         currentPattern.nbSpawnPoint = EditorGUILayout.IntField("nombre spawn point", currentPattern.nbSpawnPoint);
     }
 

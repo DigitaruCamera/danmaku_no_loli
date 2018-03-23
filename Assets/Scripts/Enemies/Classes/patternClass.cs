@@ -44,5 +44,11 @@ namespace patternClass
         public float rotSpeed;
         public bool sens;
         public int nbSpawnPoint;
+
+        public float bulletSpeed;
+        public float bulletSlerp;
+        public AnimationCurve curveX = AnimationCurve.Linear(0, 0, 10, 10);
+        public AnimationCurve curveY = AnimationCurve.Linear(0, 0, 10, 10);
+        public AnimationCurve curveScale = AnimationCurve.Linear(0, 0, 10, 10);
     }
 }
