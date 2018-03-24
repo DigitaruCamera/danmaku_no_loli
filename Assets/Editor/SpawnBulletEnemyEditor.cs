@@ -3,23 +3,23 @@ using UnityEditor;
 using UnityEngine;
 using patternClass;
 
-[CustomEditor(typeof(BulletEnemy))]
+[CustomEditor(typeof(SpawnBulletEnemy))]
 [CanEditMultipleObjects]
-public class BulletEnemyEditor : Editor
+public class SpawnBulletEnemyEditor : Editor
 {
     string[] optionSpawnBullet = new string[]
         {
-            "none", "matrix", "laser", "spiral", "solo", "circle", "particle"
+            "none", "matrix", "laser", "spiral", "solo", "circle"
         };
     string[] optionBullet = new string[]
         {
-            "none", "follow", "forward", "curve", "looking"
+            "none", "follow", "forward", "curve", "looking", "particle"
         };
     public override void OnInspectorGUI()
     {
         int nbPattern = -1;
         int currentPattern;
-        BulletEnemy enemy = (BulletEnemy)target;
+        SpawnBulletEnemy enemy = (SpawnBulletEnemy)target;
         if (enemy.patterns == null) enemy.patterns = new Pattern[1];
         if (enemy.patterns[0] == null) enemy.patterns[0] = new Pattern();
         nbPattern = EditorGUILayout.IntField("Nombre de Partern : ", enemy.patterns.Length);
@@ -30,7 +30,8 @@ public class BulletEnemyEditor : Editor
             EditorGUILayout.LabelField("______________________________________________________________________________");
             enemy.patterns[currentPattern].typeSpawnBullet = EditorGUILayout.Popup("Type spawn bullet", enemy.patterns[currentPattern].typeSpawnBullet, optionSpawnBullet);
             enemy.patterns[currentPattern].typeBullet = EditorGUILayout.Popup("Type bullet", enemy.patterns[currentPattern].typeBullet, optionBullet);
-            enemy.patterns[currentPattern].delaysPatternTotal = EditorGUILayout.FloatField("durrée du Partern : ", enemy.patterns[currentPattern].delaysPatternTotal);
+            enemy.patterns[currentPattern].delaysPattern = EditorGUILayout.FloatField("durrée du Partern : ", enemy.patterns[currentPattern].delaysPattern);
+            enemy.patterns[currentPattern].nbIteration = EditorGUILayout.IntField("nb Iteration parttern : ", enemy.patterns[currentPattern].nbIteration);
             switch (optionSpawnBullet[enemy.patterns[currentPattern].typeSpawnBullet])
             {
                 case "matrix":
@@ -71,6 +72,9 @@ public class BulletEnemyEditor : Editor
                     curveBullet(enemy.patterns[currentPattern]);
                     break;
                 case "looking":
+                    lookingBullet(enemy.patterns[currentPattern]);
+                    break;
+                case "eloigne":
                     lookingBullet(enemy.patterns[currentPattern]);
                     break;
                 default:
@@ -129,6 +133,7 @@ public class BulletEnemyEditor : Editor
         for (int i = 0; i < currentPattern.bulletVisual.Length; i++)
         {
             if (i != 0) EditorGUILayout.LabelField("~~~~~~~~~~~~~~~~");
+            currentPattern.bulletVisual[i].scaleBullet = EditorGUILayout.FloatField("Scale bullet", currentPattern.bulletVisual[i].scaleBullet);
             currentPattern.bulletVisual[i].Prefab = (GameObject)EditorGUILayout.ObjectField("Prefab", currentPattern.bulletVisual[i].Prefab, typeof(GameObject), false);
             currentPattern.bulletVisual[i].color = EditorGUILayout.ColorField("Color", currentPattern.bulletVisual[i].color);
             currentPattern.bulletVisual[i].sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", currentPattern.bulletVisual[i].sprite, typeof(Sprite), false);
@@ -168,29 +173,27 @@ public class BulletEnemyEditor : Editor
         int newY;
         int xInc;
         int yInc;
-        if (currentPattern.test == null)
+        if (currentPattern.matrix == null)
         {
-            Debug.Log("reset Matrix");
             currentPattern.width = 5;
             currentPattern.height = 5;
-            currentPattern.test = new bool[5 * 5];
+            currentPattern.matrix = new bool[5 * 5];
         }
-        currentPattern.delaysPattern = EditorGUILayout.FloatField("Delay tir : ", currentPattern.delaysPattern);
+        currentPattern.tailleMatrix = EditorGUILayout.FloatField("taille matrix : ", currentPattern.tailleMatrix);
         newX = EditorGUILayout.IntField("X : ", currentPattern.width);
         newY = EditorGUILayout.IntField("Y : ", currentPattern.height);
-        if (currentPattern.width != newX || currentPattern.height != newY || currentPattern.test == null)
+        if (currentPattern.width != newX || currentPattern.height != newY || currentPattern.matrix == null)
         {
-            Debug.Log("reset Matrix size");
             currentPattern.width = newX;
             currentPattern.height = newY;
-            currentPattern.test = new bool[newX * newY];
+            currentPattern.matrix = new bool[newX * newY];
         }
         for (xInc = 0; xInc < currentPattern.width; xInc++)
         {
             EditorGUILayout.BeginHorizontal();
             for (yInc = 0; yInc < currentPattern.height; yInc++)
             {
-                currentPattern.test[xInc + currentPattern.width * yInc] = EditorGUILayout.Toggle("", currentPattern.test[xInc + currentPattern.width * yInc], GUILayout.Width(10));
+                currentPattern.matrix[xInc + currentPattern.width * yInc] = EditorGUILayout.Toggle("", currentPattern.matrix[xInc + currentPattern.width * yInc], GUILayout.Width(10));
             }
             EditorGUILayout.EndHorizontal();
         }

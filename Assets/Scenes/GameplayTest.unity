@@ -242,78 +242,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1076991178185366, guid: 7d0da9bf625bdd942b095c3616ae3e30,
     type: 2}
   m_PrefabInternal: {fileID: 2118948524}
---- !u!1 &454669825
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 454669827}
-  - component: {fileID: 454669826}
-  m_Layer: 0
-  m_Name: EnemySpawnBulletTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &454669826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 454669825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef800cae35abd1e4982f72b042e2b0fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabsBullet: {fileID: 0}
-  patterns:
-  - typeSpawnBullet: 3
-    typeBullet: 0
-    delaysPatternTotal: 0
-    delaysPattern: 0
-    bulletVisual:
-    - Prefab: {fileID: 1048707323272402, guid: 422d82b41a74d13408d6417df803b9eb, type: 2}
-      sprite: {fileID: 21300000, guid: 96e14d92934f55345add8a6903c1d695, type: 3}
-      color: {r: 0.8014706, g: 0, b: 0, a: 0}
-    - Prefab: {fileID: 0}
-      sprite: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-    - Prefab: {fileID: 0}
-      sprite: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-    - Prefab: {fileID: 0}
-      sprite: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-    test: 00000001010000000100000000010000010100000100000000
-    width: 5
-    height: 5
-    delayWarning: 0
-    delayActif: 0
-    laserSpriteWarning: []
-    slerpWarning: 0.5
-    laserSpriteActif: []
-    slerpActif: 0.5
-    bulletMaterial: {fileID: 0}
-    Prefabs: {fileID: 0}
-    startSpeed: 2
-    rateOverTime: 2
---- !u!4 &454669827
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 454669825}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &596024862
 Prefab:
   m_ObjectHideFlags: 0
@@ -552,6 +480,250 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbde961d7f4f98f4781870d0bb9c06ca, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1520364752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1520364754}
+  - component: {fileID: 1520364753}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1520364753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1520364752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef800cae35abd1e4982f72b042e2b0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patterns:
+  - typeSpawnBullet: 1
+    typeBullet: 0
+    delaysPattern: 1
+    nbIteration: 5
+    bulletVisual:
+    - Prefab: {fileID: 1683690203931214, guid: 932f27b6014857142b35b148e4c27358, type: 2}
+      sprite: {fileID: 21300000, guid: 79aa1dc24eccb014c9590cec5a18839b, type: 3}
+      color: {r: 0, g: 0.005780886, b: 0.83823526, a: 1}
+    matrix: 00010100000100000100000100000101000001000001010000
+    width: 5
+    height: 5
+    delayWarning: 0
+    delayActif: 0
+    laserSpriteWarning: []
+    slerpWarning: 0.5
+    laserSpriteActif: []
+    slerpActif: 0.5
+    bulletMaterial: {fileID: 0}
+    Prefabs: {fileID: 0}
+    startSpeed: 2
+    rateOverTime: 2
+    rotSpeed: 0
+    sens: 0
+    nbSpawnPoint: 0
+    bulletSpeed: 0
+    bulletSlerp: 0
+    curveX:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveY:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveScale:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - typeSpawnBullet: 1
+    typeBullet: 0
+    delaysPattern: 1
+    nbIteration: 3
+    bulletVisual:
+    - Prefab: {fileID: 1127515488630098, guid: 7fbad103d44365745bb8518d1dbaff8f, type: 2}
+      sprite: {fileID: 21300000, guid: 96ec0c95314f42a40bf054185548da9b, type: 3}
+      color: {r: 0.8161765, g: 0.01800391, b: 0.01800391, a: 0}
+    matrix: 00010101010100010000000000010100000000000100010000000001010000000000010100000000000100010101010100
+    width: 7
+    height: 7
+    delayWarning: 0
+    delayActif: 0
+    laserSpriteWarning: []
+    slerpWarning: 0.5
+    laserSpriteActif: []
+    slerpActif: 0.5
+    bulletMaterial: {fileID: 0}
+    Prefabs: {fileID: 0}
+    startSpeed: 2
+    rateOverTime: 2
+    rotSpeed: 0
+    sens: 0
+    nbSpawnPoint: 0
+    bulletSpeed: 0
+    bulletSlerp: 0
+    curveX:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveY:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveScale:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 10
+        value: 10
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  Lock: 0
+--- !u!4 &1520364754
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1520364752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1530761325
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287593846038772, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6fb0a06d3c5963a429ac60d92236c5c3, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1534656259 stripped
 Transform:

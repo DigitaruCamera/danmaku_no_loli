@@ -9,6 +9,7 @@ namespace patternClass
         public GameObject Prefab;
         public Sprite sprite;
         public Color color;
+        public float scaleBullet;
     }
 
     [Serializable]
@@ -16,13 +17,14 @@ namespace patternClass
     {
         public int typeSpawnBullet = 0;
         public int typeBullet = 0;
-        public float delaysPatternTotal = 0;
         public float delaysPattern = 0;
+        public int nbIteration = 0;
 
         public BulletVisual[] bulletVisual;
         // champ spetials matrix
         //        public MatrixOfBool motifMatrix;
-        public bool[] test;
+        public float tailleMatrix;
+        public bool[] matrix;
         public int width;
         public int height;
 
