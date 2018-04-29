@@ -2,13 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Firebase;
 using Firebase.Auth;
+using UnityEngine.SceneManagement;
+using System;
+using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
+
+[Serializable]
+class Score
+{
+    string sceneName;
+    public void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
+
+    public int getCurrentSceneScore()
+    {
+        return PlayerPrefs.GetInt(sceneName + "Score");
+    }
+
+    // use to Get bestScore and LastScore
+    // scenename = "XXXLastScore" give last score do
+    // scenename = "XXXScore" give best score ever do
+    public int getSceneScore(string scenename)
+    {
+        return PlayerPrefs.GetInt(sceneName);
+    }
+
+    public string[] getAllScore()
+    {
+        List<string> scores = new List<string>();
+        int i = 0;
+        int nbScene = SceneManager.sceneCount;
+        while (i < nbScene)
+        {
+            int score = PlayerPrefs.GetInt(SceneManager.GetSceneAt(i).name + "Score");
+            scores.Add(sceneName + " : " + score);
+            i++;
+        }
+        return scores.ToArray();
+    }
+
+    public void setSceneScore(int _score)
+    {
+        if (PlayerPrefs.GetInt(sceneName + "Score") < _score)
+        {
+            PlayerPrefs.SetInt(sceneName + "Score", _score);
+        }
+    }
+
+    public void setSceneLastScore(int _score)
+    {
+        PlayerPrefs.SetInt(sceneName + "LastScore", _score);
+    }
+}
+
+[Serializable]
+public class User
+{
+    public string name, mail;
+    public Score score;
+    public User(string _name, string _mail)
+    {
+        name = _name;
+        mail = _mail;
+    }
+}
+
 
 public class connectScript : MonoBehaviour {
     public InputField username, password, passwordB;
     public Text error;
-
+    public User user;
     public void register()
     {
         if (password.text == passwordB.text)
@@ -90,5 +157,26 @@ public class connectScript : MonoBehaviour {
                 "photo_url : " + photo_url + "\n" +
                 "uid : " + uid;
         }
+    }
+
+    void loadUser()
+    {
+        string jsonUser = PlayerPrefs.GetString("user");
+        JsonUtility.FromJson<User>(jsonUser);
+        Debug.Log("loadUser");
+        Debug.Log(jsonUser);
+    }
+
+    void saveUser()
+    {
+        string jsonUser = JsonUtility.ToJson(user);
+        PlayerPrefs.SetString("user", jsonUser);
+        Debug.Log("saveUser");
+        Debug.Log(jsonUser);
+        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://danmakunololi.firebaseio.com/");
+
+        Firebase.Databases.DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        mDatabaseRef.Child("users").Child("id_player").SetRawJsonValueAsync(json);
     }
 }
