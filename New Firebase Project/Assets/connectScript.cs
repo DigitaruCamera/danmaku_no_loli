@@ -10,64 +10,51 @@ using Firebase.Database;
 using Firebase.Unity.Editor;
 
 [Serializable]
-class Score
+public class Score
 {
-    string sceneName;
-    public void Start()
-    {
-        sceneName = SceneManager.GetActiveScene().name;
-    }
+    public string sceneName = "";
+    public long score = 0L;
 
-    public int getCurrentSceneScore()
+    public Score(string _sceneName, long _score)
     {
-        return PlayerPrefs.GetInt(sceneName + "Score");
-    }
-
-    // use to Get bestScore and LastScore
-    // scenename = "XXXLastScore" give last score do
-    // scenename = "XXXScore" give best score ever do
-    public int getSceneScore(string scenename)
-    {
-        return PlayerPrefs.GetInt(sceneName);
-    }
-
-    public string[] getAllScore()
-    {
-        List<string> scores = new List<string>();
-        int i = 0;
-        int nbScene = SceneManager.sceneCount;
-        while (i < nbScene)
-        {
-            int score = PlayerPrefs.GetInt(SceneManager.GetSceneAt(i).name + "Score");
-            scores.Add(sceneName + " : " + score);
-            i++;
-        }
-        return scores.ToArray();
-    }
-
-    public void setSceneScore(int _score)
-    {
-        if (PlayerPrefs.GetInt(sceneName + "Score") < _score)
-        {
-            PlayerPrefs.SetInt(sceneName + "Score", _score);
-        }
-    }
-
-    public void setSceneLastScore(int _score)
-    {
-        PlayerPrefs.SetInt(sceneName + "LastScore", _score);
+        sceneName = _sceneName;
+        score = _score;
     }
 }
 
 [Serializable]
 public class User
 {
-    public string name, mail;
-    public Score score;
-    public User(string _name, string _mail)
+    public string name = "";
+    public string email = "";
+    public string uid;
+    public Score []scores;
+    public User(string _name, string _email, string _uid)
     {
+        Debug.Log("name" + _name + " ;; email" + _email + " ;; uid" + _uid);
         name = _name;
-        mail = _mail;
+        email = _email;
+        uid = _uid;
+    }
+
+    public void addScore(long score)
+    {
+        bool changed = false;
+        string sceneName = SceneManager.GetActiveScene().name;
+        foreach (Score current in scores)
+        {
+            if (current.sceneName == sceneName && current.score <= score)
+            {
+                current.score = score;
+                changed = true;
+            }
+        }
+        if (changed == false)
+        {
+            List<Score> scoresList = new List<Score>(scores);
+            scoresList.Add(new Score(sceneName, score));
+            scores = scoresList.ToArray();
+        }
     }
 }
 
@@ -76,8 +63,10 @@ public class connectScript : MonoBehaviour {
     public InputField username, password, passwordB;
     public Text error;
     public User user;
+
     public void register()
     {
+        error.text = "register";
         if (password.text == passwordB.text)
         {
             FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(username.text, password.text).ContinueWith(task => {
@@ -95,6 +84,8 @@ public class connectScript : MonoBehaviour {
                 // Firebase user has been created.
                 Firebase.Auth.FirebaseUser newUser = task.Result;
                 error.text = "Firebase user created successfully: {" + newUser.DisplayName + "} ({"+ newUser.UserId + "})";
+                user = new User(newUser.DisplayName, newUser.Email, newUser.UserId);
+                saveUser();
             });
         } else
         {
@@ -104,6 +95,7 @@ public class connectScript : MonoBehaviour {
 
     public void connect()
     {
+        error.text = "connect";
         FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(username.text, password.text).ContinueWith(task => {
             if (task.IsCanceled)
             {
@@ -118,11 +110,15 @@ public class connectScript : MonoBehaviour {
 
             Firebase.Auth.FirebaseUser newUser = task.Result;
             error.text = "User signed in successfully: {" + newUser.DisplayName + "} ({" + newUser.UserId + "})";
+            user = new User(newUser.DisplayName, newUser.Email, newUser.UserId);
+            saveUser();
         });
     }
 
     public void connectWithGoogle()
     {
+        Firebase.Auth.FirebaseUser newUser;
+        error.text = "connectWithGoogle";
         Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         Firebase.Auth.Credential credential =
         Firebase.Auth.GoogleAuthProvider.GetCredential("876083363494-gj340344fknakjriiu685etf9cup72c9.apps.googleusercontent.com", "9nNI1bMSQsIMHa50m1bkcqsb");
@@ -138,45 +134,66 @@ public class connectScript : MonoBehaviour {
                 return;
             }
 
-            Firebase.Auth.FirebaseUser newUser = task.Result;
+            newUser = task.Result;
+            if (newUser != null)
+            {
+                string name = newUser.DisplayName;
+                string email = newUser.Email;
+                System.Uri photo_url = newUser.PhotoUrl;
+                string uid = newUser.UserId;
+                Debug.Log(user);
+                error.text = "Aname : " + name + "\n" +
+                    "email : " + email + "\n" +
+                    "photo_url : " + photo_url + "\n" +
+                    "uid : " + uid;
+            }
+            user = new User(newUser.DisplayName, newUser.Email, newUser.UserId);
+            saveUser();
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
         });
-        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
-        if (user != null)
+        newUser = auth.CurrentUser;
+        user = new User(newUser.DisplayName, newUser.Email, newUser.UserId);
+        saveUser();
+        if (newUser != null)
         {
-            string name = user.DisplayName;
-            string email = user.Email;
-            System.Uri photo_url = user.PhotoUrl;
-            // The user's Id, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server, if you
-            // have one; use User.TokenAsync() instead.
-            string uid = user.UserId;
-            error.text = "name : " + name + "\n" +
+            string name = newUser.DisplayName;
+            string email = newUser.Email;
+            System.Uri photo_url = newUser.PhotoUrl;
+            string uid = newUser.UserId;
+            Debug.Log(user);
+            error.text = "Bname : " + name + "\n" +
                 "email : " + email + "\n" +
                 "photo_url : " + photo_url + "\n" +
                 "uid : " + uid;
         }
     }
 
-    void loadUser()
+    public void loadUser()
     {
         string jsonUser = PlayerPrefs.GetString("user");
-        JsonUtility.FromJson<User>(jsonUser);
-        Debug.Log("loadUser");
-        Debug.Log(jsonUser);
+        user = JsonUtility.FromJson<User>(jsonUser);
+        error.text = "load: \n";
+        error.text += jsonUser;
     }
 
-    void saveUser()
+    public void saveUser()
     {
         string jsonUser = JsonUtility.ToJson(user);
         PlayerPrefs.SetString("user", jsonUser);
-        Debug.Log("saveUser");
-        Debug.Log(jsonUser);
+        error.text = "save: \n";
+        error.text += jsonUser;
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://danmakunololi.firebaseio.com/");
 
-        Firebase.Databases.DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+        Firebase.Database.DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        mDatabaseRef.Child("users").Child("id_player").SetRawJsonValueAsync(json);
+        reference.Child("user").Child(user.uid).SetRawJsonValueAsync(jsonUser);
     }
+
+    public void AddScoreAndSave(long score)
+    {
+        user.addScore(score);
+        saveUser();
+    }
+
 }
